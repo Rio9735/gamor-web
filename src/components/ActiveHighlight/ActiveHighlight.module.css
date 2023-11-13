@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.oval {
+  position: absolute;
+  height: auto;
+  margin-right: 5;
+}

@@ -1,0 +1,64 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  /* gap: indica la distancia entre elementos de la lista */
+  gap: 30px;
+  padding: 0;
+}
+
+.navbar a {
+  color: #222;
+  text-decoration: none;
+  /* el tamaño de la fuente será 1.5vw si ese valor está entre 15px y 20px. Si 1.5vw es menor que 15px o mayor que 20px, el tamaño de la fuente será 15px o 20px respectivamente.*/
+  font-size: clamp(15px, 1.5vw, 20px);
+}
+
+.navbar a.activeRoute {
+  color: #7644a0;
+}
+
+.logo {
+  display: flex;
+  position: absolute;
+  margin-left: 43vw;
+  align-items: center;
+}
+
+.blurCircle {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(3px);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-right: -8px;
+}
+
+.navbar a.signin:active {
+  color: #7644a0;
+}
+.navbar a.signup {
+  color: #ffffff;
+  background-color: #111111;
+  border-radius: 80px;
+  padding: 12px 15px;
+}
+.navbar a.signup:active {
+  background-color: rgba(1, 1, 1, 0.4);
+}
+
+.signout {
+  all: unset;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.signout:active {
+  color: #ffffff;
+  background-color: rgba(1, 1, 1, 0.4);
+}

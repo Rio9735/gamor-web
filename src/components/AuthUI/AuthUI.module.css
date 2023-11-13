@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer {
+  background-color: #ffffff;
+  display: flex;
+  height: 60vh;
+  width: 40vw;
+  border-radius: 10px;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.cancelBtn {
+  all: unset;
+  color: #222222;
+  font-size: 18px;
+  border-radius: 5px;
+  margin-left: auto;
+  padding: 5px 10px;
+}
+.cancelBtn:active {
+  background-color: rgba(1, 1, 1, 0.1);
+}
+
+form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.title {
+  align-self: center;
+}
+
+input {
+  all: unset;
+  width: 50%;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
+  padding: 15px;
+}
+input:focus {
+  all: unset;
+  width: 50%;
+  border: 2px solid #7644a0;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+/* evitar que el input cambie el fondo después del autocompletado */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+.acceptBtn {
+  all: unset;
+  color: #ffffff;
+  background-color: #7644a0;
+  border-radius: 5px;
+  padding: 12px 45px;
+}
+
+.acceptBtn:active {
+  background-color: rgba(118, 68, 160, 0.5);
+}
+
+.helperText {
+  color: "#222";
+  align-self: center;
+}
+
+.loginError {
+  color: red;
+  font-size: 12px;
+  margin-top: -20px;
+}
+
+.auxText {
+  margin-top: 30px;
+}
+
+.auxText a {
+  color: #7644a0;
+  text-decoration: none;
+}

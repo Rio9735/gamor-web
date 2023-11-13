@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import RoutesConfig from "./config/routes";
+import NavBar from "./components/NavBar/NavBar";
+import validateRoute from "./config/validateRoute";
+import { useEffect } from "react";
+import { supabase } from "./config/supabase";
+import "./App.css";
 
-function App() {
+function MainContent() {
+  const location = useLocation().pathname;
+  const navigate = useNavigate();
+
+  // asegurar que no se pueda acceder a 'signin' o 'signup' si hay sesión iniciada. Se redireccionará al usuario a 'home'
+  useEffect(() => {
+    supabase.auth.onAuthStateChange((_event, session) => {
+      if (session && (location === "/signin" || location === "/signup")) {
+        navigate("/");
+      }
+    });
+  }, [navigate, location]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {validateRoute(location) && <NavBar />}
+      <RoutesConfig />
+    </>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <Router>
+      <MainContent />
+    </Router>
+  );
+}
