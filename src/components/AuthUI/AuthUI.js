@@ -40,7 +40,7 @@ export default function AuthUI({ type, title, feedback }) {
       },
     });
     if (error) {
-      setHelperText(error.message + ". Please try again later");
+      setHelperText(error.message);
     } else if (feedback) {
       setHelperText(feedback);
     }
@@ -56,17 +56,13 @@ export default function AuthUI({ type, title, feedback }) {
     }
   }, [helperText, feedback]);
 
-  const cancel = () => {
-    navigate(prevRoute); // Navega a la ruta previa
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.formContainer}>
         <button
           id={`cancel_${type}`}
           className={styles.cancelBtn}
-          onClick={cancel}
+          onClick={() => navigate(prevRoute)}
         >
           X
         </button>

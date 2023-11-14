@@ -1,0 +1,21 @@
+.signin {
+  all: unset;
+  font-size: clamp(5px, 1.2vw, 30px);
+}
+
+.signin:active {
+  color: #7644a0;
+}
+
+.signup {
+  all: unset;
+  color: #ffffff;
+  background-color: #111111;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  font-size: clamp(5px, 1.2vw, 30px);
+  border-radius: 80px;
+  padding: 12px 15px;
+}
+.signup:active {
+  background-color: rgba(1, 1, 1, 0.4);
+}

@@ -1,0 +1,16 @@
+.container {
+  height: 90vh;
+  overflow: hidden;
+}
+
+.transition {
+  transition: all 0.5s ease-in-out;
+}
+
+.moveUp {
+  transform: translateY(-40vh);
+}
+
+.show {
+  bottom: 0;
+}

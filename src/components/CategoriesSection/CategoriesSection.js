@@ -1,7 +1,9 @@
 import styles from "./CategoriesSection.module.css";
 
 export default function CategoriesSection() {
-    return(
-        <div>This is the Categories Section</div>
-    )
+  return (
+    <div className={styles.container}>
+      <h3>Trending Categories</h3>
+    </div>
+  );
 }
