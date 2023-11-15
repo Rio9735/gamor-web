@@ -11,7 +11,6 @@ export default function NavBar() {
   const { user } = useAppData();
   const location = useLocation().pathname; // hook de react router usado para obtener la ruta actual en la navegación
   const [activeRoute, setActiveRoute] = useState(location);
-  const [hide, setHide] = useState(false);
   const routes = [
     { path: "/", name: "Home" },
     { path: "/streams", name: "Streams" },
@@ -36,19 +35,6 @@ export default function NavBar() {
     }
   }, []);
 
-  // Actualizar "hide" si se ha hecho scroll. "hide" será "true" al hacer scroll hacia abajo y "false" al hacer scroll hacia arriba
-  useEffect(() => {
-    const handleScroll = () => {
-      setHide(window.scrollY > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   // cerrar sesión
   const signout = async () => {
     const { error } = await supabase.auth.signOut();
@@ -61,7 +47,7 @@ export default function NavBar() {
   };
 
   return (
-    <nav className={`${styles.navbar} ${hide && styles.hide}`}>
+    <nav className={styles.navbar}>
       <ul>
         {routes.map((route) => (
           <li key={route.path}>
@@ -85,9 +71,9 @@ export default function NavBar() {
       </div>
       {/* Opciones de autenticación.si no hay sesión iniciada, caso contrario se muestra el botón 'signout' */}
       {!user ? (
-        <div>
+        <div className={styles.loginButtonsContainer}>
           <SigninButton />
-          <SignupButton classN={styles.signUp}/>
+          <SignupButton classN={styles.signUp} />
         </div>
       ) : (
         <button id="signout" className={styles.signout} onClick={signout}>

@@ -1,9 +1,9 @@
 .navbar {
-  height: 20vh;
+  height: 14vh;
+  padding: 3vh 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: transform 0.5s ease-in-out;
 }
 
 .navbar ul {
@@ -11,25 +11,29 @@
   display: flex;
   padding: 0;
   /* gap: indica la distancia entre elementos de la lista */
-  gap: 30px;
+  gap: 3vw;
+  max-width: 50%;
+  flex-wrap: wrap;
+}
+
+.navbar li {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .navbar a {
   text-decoration: none;
   color: #222;
   /* el tamaño de la fuente será 1.5vw si ese valor está entre 15px y 20px. Si 1.5vw es menor que 15px o mayor que 20px, el tamaño de la fuente será 15px o 20px respectivamente.*/
-  font-size: clamp(15px, 1.5vw, 20px);
+  font-size: clamp(2px, 1.5vw, 50px);
 }
 
 .navbar a.activeRoute {
   color: #7644a0;
 }
 
-.hide {
-  transform: translateY(-100%);
-}
-
 .logo {
+  position: relative;
   display: flex;
   position: absolute;
   left: 50%;
@@ -37,13 +41,25 @@
   align-items: center;
 }
 
+.logo h1 {
+  color: #222;
+  font-size: clamp(10px, 3vw, 50px);
+}
+
 .blurCircle {
+  position: absolute;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(3px);
-  height: 30px;
-  width: 30px;
+  height: 3vw;
+  width: 3vw;
   border-radius: 50%;
-  margin-right: -8px;
+  margin-left: -2vw;
+}
+
+.loginButtonsContainer {
+  display: flex;
+  height: 100%;
+  align-items: center;
 }
 
 .signUp {
@@ -52,11 +68,9 @@
 
 .signout {
   all: unset;
-  border-radius: 5px;
-  padding: 5px 10px;
+  font-size: clamp(2px, 1.5vw, 50px);
 }
 
 .signout:active {
-  color: #ffffff;
-  background-color: rgba(1, 1, 1, 0.4);
+  color: #7644a0;
 }

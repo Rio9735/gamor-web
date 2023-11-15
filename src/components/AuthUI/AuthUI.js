@@ -70,6 +70,7 @@ export default function AuthUI({ type, title, feedback }) {
         <form onSubmit={handleSubmit}>
           <input
             type="email"
+            id={`email_${type}`}
             placeholder="email *"
             required
             value={email}

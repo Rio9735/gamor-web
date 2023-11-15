@@ -1,5 +1,53 @@
 .container {
-  background-color: blueviolet;
-  height: 40vh;
-  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  padding: 5vh 0;
+  contain: content;
+}
+
+.container h3 {
+  font-size: clamp(6px, 2vw, 50px);
+}
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 1vh;
+}
+
+.categoryContainer {
+  all: unset;
+  background-color: #ffffff;
+  border-radius: 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3vh;
+  position: relative;
+}
+
+.indexContainer {
+  display: flex;
+  align-items: self-start;
+  font-size: 2vh;
+}
+
+.catTitle {
+  display: flex;
+  font-size: 2vh;
+}
+
+.categoryContainer p {
+  margin: 0.5vh;
+}
+
+.categoryText {
+  font-size: clamp(2px, 1.2vw, 50px);
+}
+
+.indicator {
+  height: 2vh;
+  width: 2vw;
+  margin: 4px 0;
 }
