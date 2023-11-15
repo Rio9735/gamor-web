@@ -184,6 +184,13 @@
   position: absolute;
   bottom: 0;
 }
+.vector1 {
+  max-width: 50%;
+  max-height: 38%;
+  position: absolute;
+  bottom: 4vh;
+  color: rgba(68, 14, 112, 0.664);
+}
 
 .reactionBox {
   background-color: #111111;

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import ActiveHighlight from "../ActiveHighlight/ActiveHighlight";
-import validateRoute from "../../config/validateRoute";
 import { useAppData } from "../../context/appContext";
 import { supabase } from "./../../config/supabase";
+import validateRoute from "../../config/validateRoute";
+import ActiveHighlight from "../ActiveHighlight/ActiveHighlight";
+import GamorLogo from "../Logo/GamorLogo";
 import { SigninButton, SignupButton } from "../LoginButtons/LoginButtons";
 import styles from "./NavBar.module.css";
 
@@ -37,7 +38,11 @@ export default function NavBar() {
 
   // cerrar sesión
   const signout = async () => {
+    // Eliminar la categoría del almacenamiento local
+    localStorage.removeItem("selectedCategory");
+
     const { error } = await supabase.auth.signOut();
+
     if (error) {
       alert(error.message);
     } else {
@@ -65,10 +70,7 @@ export default function NavBar() {
         ))}
       </ul>
       {/* Logo */}
-      <div className={styles.logo}>
-        <div className={styles.blurCircle} />
-        <h1>Gamor</h1>
-      </div>
+      <GamorLogo />
       {/* Opciones de autenticación.si no hay sesión iniciada, caso contrario se muestra el botón 'signout' */}
       {!user ? (
         <div className={styles.loginButtonsContainer}>

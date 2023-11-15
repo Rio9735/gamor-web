@@ -1,27 +1,19 @@
-import { useState } from "react";
 import { ReactComponent as Indicator } from "../../assets/svg/indicator.svg";
-import actionImage from "../../assets/categoriesBg/action.jpg";
-import adventureImage from "../../assets/categoriesBg/adventure.jpg";
-import generic from "../../assets/categoriesBg/all.jpg";
-import arcadeImage from "../../assets/categoriesBg/arcade.jpg";
-import fantasyImage from "../../assets/categoriesBg/fantasy.jpg";
-import shooterImage from "../../assets/categoriesBg/shooter.jpg";
-import sportImage from "../../assets/categoriesBg/sport.jpg";
-import strategyImage from "../../assets/categoriesBg/strategy.jpg";
+import { categories } from "../../appData/categories";
 import styles from "./CategoriesSection.module.css";
+import { useAppData } from "../../context/appContext";
 
 export default function CategoriesSection() {
-  const [selectedButton, setSelectedButton] = useState(6);
-  const categories = [
-    { category: "Action Games", color: "#FF5512", image: actionImage },
-    { category: "Sport Games", color: "#0B5BDC", image: sportImage },
-    { category: "Adventure Games", color: "#DC0B66", image: adventureImage },
-    { category: "Arcade Games", color: "#FFF345", image: arcadeImage },
-    { category: "Fantasy Games", color: "#8C1EE7", image: fantasyImage },
-    { category: "Strategy", color: "#1FF350", image: strategyImage },
-    { category: "Shooter Games", color: "#FD0000", image: shooterImage },
-    { category: "All Categories", color: "", image: generic },
-  ];
+  const { selectedCategory, setSelectedCategory } = useAppData();
+
+  const handleCategorySelect = (index) => {
+    // Actualizar el estado en el contexto
+    setSelectedCategory(index);
+
+    // Guardar la categoría en el almacenamiento local
+    localStorage.setItem("selectedCategory", JSON.stringify(index));
+  };
+
   return (
     <div className={styles.container}>
       <h3>Trending Categories</h3>
@@ -31,7 +23,7 @@ export default function CategoriesSection() {
             key={index}
             className={styles.categoryContainer}
             style={
-              selectedButton === index
+              selectedCategory === index
                 ? {
                     background: `linear-gradient(rgba(118, 68, 160, 0.5), rgb(118, 68, 160)), url(${item.image})`,
                     backgroundSize: "cover",
@@ -39,7 +31,7 @@ export default function CategoriesSection() {
                   }
                 : {}
             }
-            onClick={() => setSelectedButton(index)}
+            onClick={() => handleCategorySelect(index)}
           >
             <div
               className={styles.indexContainer}
@@ -49,11 +41,11 @@ export default function CategoriesSection() {
             >
               {index < 7 && (
                 <>
-                  {selectedButton !== index && "/"}
+                  {selectedCategory !== index && "/"}
                   <p
                     className={styles.catTitle}
                     style={{
-                      color: selectedButton === index ? "#ffffff" : "#666666",
+                      color: selectedCategory === index ? "#ffffff" : "#666666",
                     }}
                   >
                     {(index + 1).toString().padStart(2, 0)}
@@ -64,7 +56,7 @@ export default function CategoriesSection() {
                 <p
                   className={styles.catTitle}
                   style={{
-                    color: selectedButton === index ? "#ffffff" : "#222222",
+                    color: selectedCategory === index ? "#ffffff" : "#222222",
                   }}
                 >
                   VIEW ALL
@@ -72,15 +64,15 @@ export default function CategoriesSection() {
               )}
             </div>
             <p
-            className={styles.categoryText}
+              className={styles.categoryText}
               style={{
-                color: selectedButton === index ? "#ffffff" : "#222222",
+                color: selectedCategory === index ? "#ffffff" : "#222222",
               }}
             >
               {item.category}
             </p>
             <Indicator
-              color={selectedButton === index ? "#ffffff" : "#333333"}
+              color={selectedCategory === index ? "#ffffff" : "#333333"}
               className={styles.indicator}
             />
           </button>

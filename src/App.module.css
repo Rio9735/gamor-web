@@ -1,0 +1,37 @@
+.mainContent {
+  height: 100vh;
+  padding: 0 5vw;
+  transition: all 0.5s ease-in-out;
+}
+
+.loadingContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingText {
+  top: 35vh;
+}
+
+.loadingSpinner {
+  width: 4vh;
+  height: 4vh;
+  border-radius: 50%;
+  border: 1vh solid #ffffff;
+  border-top: 1vh solid #7644a0;
+  margin-top: 2vh;
+  animation: spin 1s linear infinite;
+}
+
+/* animación para el ícono de carga */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

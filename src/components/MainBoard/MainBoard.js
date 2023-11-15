@@ -5,6 +5,7 @@ import { ReactComponent as TripleOval } from "../../assets/svg/tripleOval.svg";
 import { ReactComponent as Underline } from "../../assets/svg/underline.svg";
 import { ReactComponent as AddUser } from "../../assets/svg/addUser.svg";
 import { ReactComponent as Heart } from "../../assets/svg/heart.svg";
+import { ReactComponent as Vector1 } from "../../assets/svg/vector1.svg";
 import img1 from "../../assets/fortnite/fortnite7.png";
 import img2 from "../../assets/fortnite/fortnite8.png";
 import img3 from "../../assets/fortnite/fortnite1.png";
@@ -29,9 +30,9 @@ export default function MainBoard() {
     tripleOvalRef.current.style.width = `${textSize * 4.6}px`;
     tripleOvalRef.current.style.height = `${textSize * 5}px`;
   }, []);
-  
+
   useEffect(() => {
-    resizeHandler()
+    resizeHandler();
     // Agregar el controlador de eventos de redimensionamiento a la ventana
     window.addEventListener("resize", resizeHandler);
     // Eliminar el controlador de eventos de redimensionamiento cuando se desmonta el componente
@@ -86,7 +87,7 @@ export default function MainBoard() {
         </section>
         <section className={styles.section3}>
           {!user ? (
-             <div className={styles.loginButtonsContainer}>
+            <div className={styles.loginButtonsContainer}>
               <SignupButton classN={styles.signup} />
               <SigninButton classN={styles.signin} />
             </div>
@@ -107,9 +108,11 @@ export default function MainBoard() {
             className={styles.joinStreamBtn}
             onClick={() => alert("Falta por implementar")}
           >
-            <AddUser className={styles.addUserIcon}/>
+            <AddUser className={styles.addUserIcon} />
           </button>
-          <p>{streamHour} : {streamMinute}</p>
+          <p>
+            {streamHour} : {streamMinute}
+          </p>
         </section>
         <section className={styles.section5}>
           <div
@@ -127,6 +130,7 @@ export default function MainBoard() {
           </div>
         </section>
         {/* *** cargar imagen correspondiente desde el servidor */}
+            <Vector1 className={styles.vector1}/>
         <img src={img3} alt="" className={styles.img3} />
       </div>
       {/* Tercera columna */}

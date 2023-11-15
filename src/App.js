@@ -1,14 +1,15 @@
+import React, { useState, useEffect, useRef } from "react";
 import {
   BrowserRouter as Router,
   useLocation,
   useNavigate,
 } from "react-router-dom";
+import { supabase } from "./config/supabase";
+import validateRoute from "./config/validateRoute";
 import RoutesConfig from "./config/routes";
 import NavBar from "./components/NavBar/NavBar";
-import validateRoute from "./config/validateRoute";
-import { useEffect, useRef, useState } from "react";
-import { supabase } from "./config/supabase";
-import "./App.css";
+import GamorLogo from "./components/Logo/GamorLogo";
+import styles from "./App.module.css";
 
 function MainContent() {
   const location = useLocation().pathname;
@@ -16,21 +17,25 @@ function MainContent() {
   const mainContentRef = useRef();
   const [show, setShow] = useState(false);
   const [overflow, setOverflow] = useState(0);
+  const [loading, setLoading] = useState(true); //manejar la carga
+  const [dataLoaded, setDataLoaded] = useState(false); // rastrear si ya se cargaron los datos
 
   useEffect(() => {
     const measureOverflow = () => {
       const element = mainContentRef.current;
-      const elementHeight = element.clientHeight;
-      const contentHeight = element.scrollHeight;
+      if (element) {
+        const elementHeight = element.clientHeight;
+        const contentHeight = element.scrollHeight;
 
-      if (contentHeight > elementHeight) {
-        setOverflow(contentHeight - elementHeight);
-      } else {
-        setOverflow(0);
+        if (contentHeight > elementHeight) {
+          setOverflow(contentHeight - elementHeight);
+        } else {
+          setOverflow(0);
+        }
       }
     };
 
-    // Espera un poco antes de medir el desbordamiento
+    // Espera 1 segundo antes de medir el desbordamiento para asegurar que se maneje el dato correcto
     const timeoutId = setTimeout(measureOverflow, 1000);
 
     // Limpia el temporizador si el componente se desmonta antes de que se ejecute el temporizador
@@ -50,17 +55,46 @@ function MainContent() {
     };
   }, []);
 
-  // asegurar que no se pueda acceder a 'signin' o 'signup' si hay sesión iniciada. Se redireccionará al usuario a 'home'
+  // Asegurar que no se pueda acceder a 'signin' o 'signup' si hay sesión iniciada. Se redireccionará al usuario a 'home'
   useEffect(() => {
+    // Restablecer el desbordamiento al cambiar de ruta o recargar la página
+    setOverflow(0);
     supabase.auth.onAuthStateChange((_event, session) => {
       if (session && (location === "/signin" || location === "/signup")) {
         navigate("/");
       }
+      // Actualizar el estado de rastreo cuando los datos se han cargado
+      setDataLoaded(true);
     });
   }, [navigate, location]);
+
+  // Mostrar feedback de carga mientras se cargan los datos, si los datos no se cargan en 5 segundos se ocultará el indicador de carga y se renderizará la aplicación
+  useEffect(() => {
+    let timer;
+    if (!dataLoaded) {
+      timer = setTimeout(() => {
+        setLoading(false);
+      }, 5000);
+    } else {
+      setLoading(false);
+    }
+
+    return () => clearTimeout(timer);
+  }, [dataLoaded]);
+
+  // mostrar feedback de carga mientras se cargan los datos de la app para evitar parpadeos en la renderización de los componentes
+  if (loading) {
+    return (
+      <div className={styles.loadingContainer}>
+        <GamorLogo classN={styles.loadingText} />
+        <div className={styles.loadingSpinner} />
+      </div>
+    );
+  }
+
   return (
     <div
-      id="main-content"
+      className={styles.mainContent}
       ref={mainContentRef}
       style={{
         transform: show ? `translateY(-${overflow}px)` : "none",
