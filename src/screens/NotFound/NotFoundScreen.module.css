@@ -4,3 +4,11 @@
   align-items: center;
   height: 100vh;
 }
+
+.textLight {
+  color: #222222;
+}
+
+.textDark {
+  color: #cccccc;
+}

@@ -7,16 +7,25 @@
 }
 
 .gamorLogo h1 {
-  color: #222222;
-  font-size: clamp(10px, 3vw, 50px);
+  font-size: clamp(10px, 2.2vw, 50px);
 }
 
 .blurCircle {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  height: 3vw;
-  width: 3vw;
+  backdrop-filter: blur(4px);
+  background-color: transparent;
+  height: clamp(10px, 2.2vw, 50px);
+  width: clamp(10px, 2.2vw, 50px);
   border-radius: 50%;
-  margin-left: -2vw;
+  margin-left: -1.3vw;
   position: absolute;
+}
+
+
+.logoTextLight{
+color: #20262D
+}
+
+.logoTextDark{
+  color:#FFFFFF
+          
 }

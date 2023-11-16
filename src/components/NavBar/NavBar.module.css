@@ -21,32 +21,83 @@
   flex-wrap: wrap;
 }
 
+.navbar a,
+.signout {
+  font-size: clamp(4px, 1.2vw, 40px);
+}
+
 .navbar a {
   text-decoration: none;
-  color: #222;
   /* el tamaño de la fuente será 1.5vw si ese valor está entre 15px y 20px. Si 1.5vw es menor que 15px o mayor que 20px, el tamaño de la fuente será 15px o 20px respectivamente.*/
-  font-size: clamp(2px, 1.5vw, 50px);
+  font-size: clamp(4px, 1.2vw, 40px);
 }
 
-.navbar a.activeRoute {
-  color: #7644a0;
-}
-
-.loginButtonsContainer {
+.rightSection {
   display: flex;
   height: 100%;
   align-items: center;
 }
 
-.signUp {
+.toggleTheme {
+  all: unset;
+  width: 3vh;
+  height: 3vh;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3vw;
+  padding: 1vh;
+}
+
+.signup {
+  background-color: #222222;
+  color: #ffffff;
+  border: 0.1vh solid #4b4b4b;
   margin-left: 3vw;
 }
 
 .signout {
   all: unset;
-  font-size: clamp(2px, 1.5vw, 50px);
+  font-size: clamp(4px, 1.2vw, 40px);
 }
 
 .signout:active {
   color: #7644a0;
+}
+
+/* Estilos del tema claro */
+
+.activeRouteLight {
+  color: #7644a0;
+}
+
+.toggleLight {
+  background-color: #20262d;
+}
+
+.textLight {
+  color: #222222;
+}
+
+.lightIcon {
+  color: #20262d;
+}
+
+/* Estilos del tema oscuro */
+
+.textDark {
+  color: #888888;
+}
+
+.activeRouteDark {
+  color: #fd8843;
+}
+
+.toggleDark {
+  background-color: #ffffff;
+}
+
+.darkIcon {
+  color: #eff2f2;
 }

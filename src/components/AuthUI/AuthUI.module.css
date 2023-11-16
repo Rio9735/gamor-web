@@ -1,5 +1,5 @@
 .container {
-  height: 100vh;
+  height: 97vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,25 +7,14 @@
 }
 
 .formContainer {
-  background-color: #ffffff;
-  height: 60vh;
+  align-self: center;
+  height: auto;
   width: 40vw;
-  border-radius: 10px;
+  font-size: clamp(4px, 1.5vw, 50px);
+  border-radius: 2vh;
   display: flex;
   flex-direction: column;
-  padding: 30px;
-}
-
-.cancelBtn {
-  all: unset;
-  color: #222222;
-  font-size: 18px;
-  border-radius: 5px;
-  margin-left: auto;
-  padding: 5px 10px;
-}
-.cancelBtn:active {
-  background-color: rgba(1, 1, 1, 0.1);
+  padding: 5vh;
 }
 
 form {
@@ -34,62 +23,108 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 25px;
-}
-.title {
-  align-self: center;
+  gap: 5vh;
 }
 
 input {
   all: unset;
-  border: 1px solid #bbbbbb;
+  background-color: transparent;
+  font-size: clamp(4px, 1.2vw, 40px);
+  border: 0.2vh solid #bbbbbb;
   width: 50%;
-  border-radius: 5px;
-  padding: 15px;
+  border-radius: 1.5vh;
+  padding: 2vh;
 }
+
 input:focus {
   all: unset;
   width: 50%;
-  border: 2px solid #7644a0;
-  border-radius: 5px;
-  padding: 15px;
+  border: 0.5vh solid #7644a0;
+  border-radius: 1.5vh;
+  padding: 2vh;
 }
 
-/* evitar que el input cambie el fondo después del autocompletado */
+/* Evitar cambio de fondo del campo de entrada después del autocompletado */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.cancelBtn {
+  all: unset;
+  color: #222222;
+  font-size: clamp(4px, 2vw, 60px);
+  border-radius: 1.5vh;
+  margin-left: auto;
+  padding: 0.5vh 1vw;
+}
+
+.cancelBtn:active {
+  background-color: rgba(1, 1, 1, 0.1);
 }
 
 .acceptBtn {
   all: unset;
   color: #ffffff;
   background-color: #7644a0;
-  border-radius: 5px;
-  padding: 12px 45px;
+  font-size: clamp(4px, 1.5vw, 40px);
+  border-radius: 1.5vh;
+  padding: 2vh 5vw;
 }
 
 .acceptBtn:active {
   background-color: rgba(118, 68, 160, 0.5);
 }
 
+/* Estilos de Texto */
+.title {
+  align-self: center;
+}
+
 .helperText {
-  color: "#222";
   align-self: center;
 }
 
 .loginError {
-  color: red;
-  font-size: 12px;
-  margin-top: -20px;
+  font-size: clamp(4px, 1.2vw, 40px);
+  margin-top: -3vh;
 }
 
 .auxText {
-  margin-top: 30px;
+  font-size: clamp(4px, 1.2vw, 40px);
+  margin-top: 5vh;
 }
 
 .auxText a {
   color: #7644a0;
+  font-size: clamp(4px, 1.2vw, 40px);
   text-decoration: none;
+}
+
+/* Estilos de Tema Claro */
+.formContainerLight {
+  background-color: #ffffff;
+}
+
+.textLight {
+  color: #222222;
+}
+
+.errorTextLight {
+  color: red;
+}
+
+/* Estilos de Tema Oscuro */
+.formContainerDark {
+  background-color: #2b3138;
+}
+
+.textDark {
+  color: #cccccc;
+}
+
+.errorTextDark {
+  color: rgb(245, 112, 112);
 }

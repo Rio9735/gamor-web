@@ -11,12 +11,18 @@ import RoutesConfig from "./config/routes";
 import NavBar from "./components/NavBar/NavBar";
 import GamorLogo from "./components/Logo/GamorLogo";
 import styles from "./App.module.css";
+import { useAppData } from "./context/appContext";
 
 function MainContent() {
   const location = useLocation().pathname;
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true); //manejar la carga
   const [dataLoaded, setDataLoaded] = useState(false); // rastrear si ya se cargaron los datos
+  const { darkTheme } = useAppData();
+
+  useEffect(() => {
+    document.body.style.backgroundColor = darkTheme ? "#20262D" : "#EFF2F2";
+  }, [darkTheme]);
 
   const handleScroll = (e) => {
     var target = e.deltaY < 0 ? 0 : document.body.scrollHeight;

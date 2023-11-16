@@ -1,7 +1,8 @@
+/* Estilos comunes a ambos temas */
+
 .container {
-  background-color: #ffffff;
   height: 70vh;
-  border-radius: 10px;
+  border-radius: 2vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   contain: content;
@@ -19,10 +20,6 @@
   padding: 5vh 2vw;
 }
 
-.column1 p {
-  color: #222222;
-}
-
 .section1 {
   position: relative;
 }
@@ -38,11 +35,10 @@
 }
 
 .section2 p {
-  font-size: clamp(2px, 1.2vw, 50px);
+  font-size: clamp(4px, 1.2vw, 40px);
 }
 
 .highlightedText {
-  color: #111111;
   font-weight: bold;
   display: flex;
   flex-direction: column;
@@ -63,7 +59,7 @@
 }
 
 .section3 p {
-  font-size: clamp(2px, 1.2vw, 50px);
+  font-size: clamp(4px, 1.2vw, 40px);
   text-align: center;
 }
 
@@ -75,34 +71,19 @@
   align-items: center;
 }
 
-.signup {
-  color: #222222;
-  background-color: transparent;
-}
-
-.signup:active {
-  color: #ffffff;
-}
-
-.signin {
-  margin: 10px 0;
-}
-
 .column2 {
-  background-color: #7644a0;
   position: relative;
 }
 
 .column2 h2 {
   color: #ffffff;
-  font-size: clamp(5px, 2vw, 100px);
+  font-size: clamp(4px, 1.8vw, 50px);
   text-align: center;
   margin-bottom: 0;
 }
 
 .column2 h6 {
-  color: #54005f;
-  font-size: clamp(2px, 1.2vw, 50px);
+  font-size: clamp(4px, 1.2vw, 40px);
   text-align: center;
   margin: 1.5vh 0 5vh;
 }
@@ -118,8 +99,7 @@
 }
 
 .section4 p {
-  color: #7644a0;
-  font-size: clamp(5px, 2vw, 50px);
+  font-size: clamp(4px, 2vw, 50px);
   font-weight: 700;
 }
 
@@ -134,8 +114,8 @@
   position: absolute;
   align-items: center;
   justify-content: center;
-  top: -3vh;
-  left: -3vh;
+  top: -2vh;
+  left: -4vh;
 }
 
 .joinStreamBtn:active {
@@ -148,13 +128,11 @@
 }
 
 .section5 {
-  background-color: #111111;
   width: 100%;
   position: relative;
 }
 
 .imgContainer {
-  background-color: rgba(68, 14, 112, 0.664);
   height: 7vh;
   width: 7vh;
   border-radius: 1vh;
@@ -189,11 +167,10 @@
   max-height: 38%;
   position: absolute;
   bottom: 4vh;
-  color: rgba(68, 14, 112, 0.664);
 }
 
 .reactionBox {
-  background-color: #111111;
+  background-color: #222222;
   height: 4vh;
   width: 4vh;
   border-radius: 50%;
@@ -209,5 +186,70 @@
   width: 2vh;
 }
 
-.column3 {
+/* Estilos del tema claro */
+
+.containerLight {
+  background-color: #ffffff;
+}
+
+.column1HTLight {
+  color: #fd8843;
+}
+
+.column1DescriptionLight {
+  color: #222222;
+}
+
+.highlightedTextLight {
+  color: #111111;
+}
+
+.columnLight {
+  background-color: #7644a0;
+}
+
+.column2DescriptionLight {
+  color: #54005f;
+}
+
+.clockTextLight {
+  color: #7644a0;
+}
+
+.imgContainerLight {
+  background-color: rgba(68, 14, 112, 0.7);
+}
+
+/* Estilos del tema oscuro */
+
+.containerDark {
+  background-color: #2b3138;
+}
+
+.column1HTDark {
+  color: #7e33f0;
+}
+
+.column1DescriptionDark {
+  color: #888888;
+}
+
+.highlightedTextDark {
+  color: #ffffff;
+}
+
+.columnDark {
+  background-color: #fd8843;
+}
+
+.column2DescriptionDark {
+  color: #dc5e14;
+}
+
+.clockTextDark {
+  color: #fd8843;
+}
+
+.imgContainerDark {
+  background-color: #eb742d;
 }

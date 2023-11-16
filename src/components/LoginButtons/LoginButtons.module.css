@@ -1,6 +1,7 @@
-.signin {
+.signin,
+.signup {
   all: unset;
-  font-size: clamp(2px, 1.2vw, 50px);
+  font-size: clamp(4px, 1.2vw, 40px);
 }
 
 .signin:active {
@@ -8,14 +9,28 @@
 }
 
 .signup {
-  all: unset;
-  color: #ffffff;
-  background-color: #111111;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  font-size: clamp(2px, 1.2vw, 50px);
   border-radius: 80px;
-  padding: 2.5vh 2vw;
+  padding: 2vh 1.5vw;
 }
+
 .signup:active {
   background-color: rgba(1, 1, 1, 0.4);
+}
+
+/* Estilos de tema claro */
+.textLight {
+  color: #222222;
+}
+.signupLight {
+  background-color: #ffffff;
+}
+
+/* Estilos de tema oscuro */
+.textDark {
+  color: #ffffff;
+}
+
+.signupDark {
+  background-color: #33393d;
 }

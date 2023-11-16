@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./AuthUI.module.css";
 import { supabase } from "../../config/supabase";
+import { useAppData } from "../../context/appContext";
 
 export default function AuthUI({ type, title, feedback }) {
   // type='signin' || 'signup' (*Parámetro Requerido* Si se asigna otro valor a type habrá errores)
   // title => String
   // feedback => String (Mensaje auxiliar que se muestra si no ocurre algún error al confirmar el formulario de autenticación)
 
+  const { darkTheme } = useAppData();
   const navigate = useNavigate();
   const [prevRoute, setPrevRoute] = useState(null);
   const [helperText, setHelperText] = useState(null);
@@ -58,16 +60,33 @@ export default function AuthUI({ type, title, feedback }) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.formContainer}>
+      <div
+        className={`${styles.formContainer} ${
+          darkTheme ? styles.formContainerDark : styles.formContainerLight
+        }`}
+      >
         <button
           id={`cancel_${type}`}
-          className={styles.cancelBtn}
+          className={`${styles.cancelBtn} ${
+            darkTheme ? styles.textDark : styles.textLight
+          }`}
           onClick={() => navigate(prevRoute)}
         >
           X
         </button>
-        {title && <h2 className={styles.title}>{title}</h2>}
-        <form onSubmit={handleSubmit}>
+        {title && (
+          <h2
+            className={`${styles.title}  ${
+              darkTheme ? styles.textDark : styles.textLight
+            }`}
+          >
+            {title}
+          </h2>
+        )}
+        <form
+          onSubmit={handleSubmit}
+          className={darkTheme ? styles.textDark : styles.textLight}
+        >
           <input
             type="email"
             id={`email_${type}`}
@@ -85,7 +104,7 @@ export default function AuthUI({ type, title, feedback }) {
             onChange={(e) => setPassword(e.target.value)}
           />
           {type === "signin" && helperText && (
-            <label htmlFor="pw_signin" className={styles.loginError}>
+            <label htmlFor="pw_signin" className={`${styles.loginError} ${darkTheme ? styles.errorTextDark : styles.errorTextLight}`}>
               {helperText}
             </label>
           )}
@@ -94,10 +113,20 @@ export default function AuthUI({ type, title, feedback }) {
           </button>
         </form>
         {type === "signup" && helperText && (
-          <p className={styles.helperText}>{helperText}</p>
+          <p
+            className={`${styles.helperText} ${
+              darkTheme ? styles.textDark : styles.textLight
+            }`}
+          >
+            {helperText}
+          </p>
         )}
       </div>
-      <p className={styles.auxText}>
+      <p
+        className={`${styles.auxText} ${
+          darkTheme ? styles.textDark : styles.textLight
+        }`}
+      >
         {message} <Link to={linkTo}>{linkText}</Link>
       </p>
     </div>

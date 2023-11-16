@@ -1,5 +1,5 @@
 body {
-  background-color: #ececec;
+  background-color: #EFF2F2;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -7,17 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Personalizar la barra de desplazamiento */
-body::-webkit-scrollbar-track {
-  background: #ececec;
-}
-
 body::-webkit-scrollbar {
   width: 0.4vw;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: rgba(41, 37, 37, 0.6);
+  background: #777474;
   border-radius: 10px;
 }
 

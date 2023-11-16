@@ -8,8 +8,15 @@ const AppContext = createContext();
 export function AppProvider({ children }) {
   const [user, setUser] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(6);
+  // valores admitidos: 'dark' || 'light'
+  const [darkTheme, setDarkTheme] = useState(false);
 
   useEffect(() => {
+    const isDarkTheme = JSON.parse(localStorage.getItem("darkTheme"));
+    if (isDarkTheme) {
+      setDarkTheme(isDarkTheme);
+    }
+
     // Escuchar los cambios en el estado de autenticación
     supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user);
@@ -17,7 +24,7 @@ export function AppProvider({ children }) {
       // Si el usuario está autenticado, recuperar la categoría del almacenamiento local
       if (session?.user) {
         const savedCategory = localStorage.getItem("selectedCategory");
-        // SOlo se recuperará la categoría si el valor almacenado corresponde con una posición valida del arreglo de categorías
+        // Solo se recuperará la categoría si el valor almacenado corresponde con una posición valida del arreglo de categorías
         if (savedCategory && savedCategory >= 0 && savedCategory <= 7) {
           setSelectedCategory(JSON.parse(savedCategory));
         }
@@ -25,9 +32,26 @@ export function AppProvider({ children }) {
     });
   }, []);
 
+  // función para el cambio de tema
+  const toggleTheme = () => {
+    if (!darkTheme) {
+      window.localStorage.setItem("darkTheme", JSON.stringify(true));
+      setDarkTheme(true);
+    } else {
+      window.localStorage.setItem("darkTheme", JSON.stringify(false));
+      setDarkTheme(false);
+    }
+  };
+
   return (
     <AppContext.Provider
-      value={{ user, selectedCategory, setSelectedCategory }}
+      value={{
+        user,
+        darkTheme,
+        toggleTheme,
+        selectedCategory,
+        setSelectedCategory,
+      }}
     >
       {children}
     </AppContext.Provider>

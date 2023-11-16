@@ -6,10 +6,10 @@
 }
 
 .container h3 {
-  font-size: clamp(6px, 2vw, 50px);
+  font-size: clamp(4px, 1.8vw, 50px);
 }
 
-.categoriesGrid {
+.grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -18,36 +18,70 @@
 
 .categoryContainer {
   all: unset;
-  background-color: #ffffff;
   border-radius: 2vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 3vh;
   position: relative;
+  padding: 3vh;
 }
 
 .indexContainer {
   display: flex;
   align-items: self-start;
-  font-size: 2vh;
+  font-size: clamp(3px, 0.8vw, 30px);
 }
 
-.catTitle {
+.categoryTitle {
   display: flex;
-  font-size: 2vh;
+  font-size: clamp(3.5px, 0.9vw, 35px);
 }
 
-.categoryContainer p {
+.container p {
   margin: 0.5vh;
 }
 
-.categoryText {
-  font-size: clamp(2px, 1.2vw, 50px);
+.text {
+  font-size: clamp(4px, 1.2vw, 40px);
+  font-weight: 600;
 }
 
 .indicator {
   height: 2vh;
   width: 2vw;
   margin: 4px 0;
+}
+
+/* Estilos tema claro */
+.titleLight {
+  color: #222222;
+}
+
+.categoryContainerLight {
+  background-color: #ffffff;
+}
+
+.categoryTitleLight {
+  color: #aaaaaa;
+}
+
+/* Estilos tema oscuro */
+.titleDark {
+  color: #ffffff;
+}
+
+.categoryNameLight {
+  color: #222222;
+}
+
+.categoryContainerDark {
+  background-color: #2b3138;
+}
+
+.categoryTitleDark {
+  color: #dddddd;
+}
+
+.categoryNameDark {
+  color: #ffffff;
 }

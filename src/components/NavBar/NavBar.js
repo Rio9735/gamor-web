@@ -6,10 +6,12 @@ import validateRoute from "../../config/validateRoute";
 import ActiveHighlight from "../ActiveHighlight/ActiveHighlight";
 import GamorLogo from "../Logo/GamorLogo";
 import { SigninButton, SignupButton } from "../LoginButtons/LoginButtons";
+import { ReactComponent as Moon } from "../../assets/svg/moon-outline.svg";
+import { ReactComponent as Sun } from "../../assets/svg/sunny-outline.svg";
 import styles from "./NavBar.module.css";
 
 export default function NavBar() {
-  const { user } = useAppData();
+  const { user, darkTheme, toggleTheme } = useAppData();
   const location = useLocation().pathname; // hook de react router usado para obtener la ruta actual en la navegación
   const [activeRoute, setActiveRoute] = useState(location);
   const routes = [
@@ -58,10 +60,23 @@ export default function NavBar() {
           <li key={route.path}>
             <Link
               to={route.path}
-              className={activeRoute === route.path ? styles.activeRoute : ""}
+              className={`${
+                activeRoute === route.path ? styles.activeRoute : ""
+              } ${
+                activeRoute === route.path && darkTheme
+                  ? styles.activeRouteDark
+                  : activeRoute !== route.path && darkTheme
+                  ? styles.textDark
+                  : activeRoute !== route.path && !darkTheme
+                  ? styles.textLight
+                  : styles.activeRouteLight
+              } `}
             >
               {activeRoute === route.path ? (
-                <ActiveHighlight label={route.name} color="#4B45A1" />
+                <ActiveHighlight
+                  label={route.name}
+                  color={darkTheme ? "#FD8843" : "#4B45A1"}
+                />
               ) : (
                 route.name
               )}
@@ -71,17 +86,39 @@ export default function NavBar() {
       </ul>
       {/* Logo */}
       <GamorLogo />
-      {/* Opciones de autenticación.si no hay sesión iniciada, caso contrario se muestra el botón 'signout' */}
-      {!user ? (
-        <div className={styles.loginButtonsContainer}>
-          <SigninButton />
-          <SignupButton classN={styles.signUp} />
-        </div>
-      ) : (
-        <button id="signout" className={styles.signout} onClick={signout}>
-          Sign out
+      <div className={styles.rightSection}>
+        {/* botón de cambio de tema */}
+        <button
+          id="toggleTheme"
+          className={`${styles.toggleTheme} ${
+            darkTheme ? styles.toggleDark : styles.toggleLight
+          }`}
+          onClick={toggleTheme}
+        >
+          {darkTheme ? (
+            <Sun className={styles.lightIcon} />
+          ) : (
+            <Moon className={styles.darkIcon} />
+          )}
         </button>
-      )}
+        {/* Opciones de autenticación.si no hay sesión iniciada, caso contrario se muestra el botón 'signout' */}
+        {!user ? (
+          <>
+            <SigninButton />
+            <SignupButton classN={styles.signup} />
+          </>
+        ) : (
+          <button
+            id="signout"
+            className={`${styles.signout} ${
+              darkTheme ? styles.textDark : styles.textLight
+            }`}
+            onClick={signout}
+          >
+            Sign out
+          </button>
+        )}
+      </div>
     </nav>
   );
 }

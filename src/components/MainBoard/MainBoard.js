@@ -12,7 +12,7 @@ import img3 from "../../assets/fortnite/fortnite1.png";
 import styles from "./MainBoard.module.css";
 
 export default function MainBoard() {
-  const { user } = useAppData();
+  const { user, darkTheme } = useAppData();
   const section1TextRef = useRef(null);
   const section2TextRef = useRef(null);
   const tripleOvalRef = useRef(null);
@@ -58,19 +58,38 @@ export default function MainBoard() {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${
+        darkTheme ? styles.containerDark : styles.containerLight
+      }`}
+    >
       {/* Primera columna */}
       <div className={`${styles.columns} ${styles.column1}`}>
         <section className={styles.section1}>
           <TripleOval
-            color="rgba(255, 85, 18,0.5)"
+            color={
+              darkTheme ? "rgba(126, 51, 240, 0.5)" : "rgba(253, 136, 67,0.5)"
+            }
             className={styles.tripleOval}
             ref={tripleOvalRef}
           />
-          <p ref={section1TextRef}>
+          <p
+            ref={section1TextRef}
+            className={
+              darkTheme
+                ? styles.highlightedTextDark
+                : styles.column1DescriptionLight
+            }
+          >
             start
             <br />
-            <span style={{ color: "#FF5512" }}>streaming</span>
+            <span
+              className={
+                darkTheme ? styles.column1HTDark : styles.column1HTLight
+              }
+            >
+              streaming
+            </span>
             <br />
             games
             <br />
@@ -78,29 +97,77 @@ export default function MainBoard() {
           </p>
         </section>
         <section className={styles.section2}>
-          <p>gamor now has a</p>
-          <p className={styles.highlightedText} ref={section2TextRef}>
-            stream party
-            <Underline color="#7644a0" ref={underlineRef} />
+          <p
+            className={
+              darkTheme
+                ? styles.column1DescriptionDark
+                : styles.column1DescriptionLight
+            }
+          >
+            gamor now has a
           </p>
-          <p>platform</p>
+          <p
+            ref={section2TextRef}
+            className={`${styles.highlightedText} ${
+              darkTheme
+                ? styles.highlightedTextDark
+                : styles.highlightedTextLight
+            }`}
+          >
+            stream party
+            <Underline
+              className={
+                darkTheme ? styles.column1HTLight : styles.column1HTDark
+              }
+              ref={underlineRef}
+            />
+          </p>
+          <p
+            className={
+              darkTheme
+                ? styles.column1DescriptionDark
+                : styles.column1DescriptionLight
+            }
+          >
+            platform
+          </p>
         </section>
         <section className={styles.section3}>
           {!user ? (
             <div className={styles.loginButtonsContainer}>
-              <SignupButton classN={styles.signup} />
-              <SigninButton classN={styles.signin} />
+              <SignupButton />
+              <SigninButton />
             </div>
           ) : (
-            <p>Thank you for join us {username}!</p>
+            <p
+              className={
+                darkTheme
+                  ? styles.column1DescriptionDark
+                  : styles.column1DescriptionLight
+              }
+            >
+              Thank you for join us {username}!
+            </p>
           )}
         </section>
       </div>
       {/* Segunda columna */}
-      <div className={`${styles.columns} ${styles.column2}`}>
+      <div
+        className={`${styles.columns} ${styles.column2} ${
+          darkTheme ? styles.columnDark : styles.columnLight
+        }`}
+      >
         {/* *** Cambiar el nombre estático por la variable real */}
         <h2>Fortnite New Season</h2>
-        <h6>Join Live Stream</h6>
+        <h6
+          className={
+            darkTheme
+              ? styles.column2DescriptionDark
+              : styles.column2DescriptionLight
+          }
+        >
+          Join Live Stream
+        </h6>
         <section className={styles.section4}>
           {/* *** hora real del stream */}
           <button
@@ -110,18 +177,24 @@ export default function MainBoard() {
           >
             <AddUser className={styles.addUserIcon} />
           </button>
-          <p>
+          <p
+            className={darkTheme ? styles.clockTextDark : styles.clockTextLight}
+          >
             {streamHour} : {streamMinute}
           </p>
         </section>
         <section className={styles.section5}>
           <div
-            className={`${styles.imgContainer} ${styles.smallImgContainer1}`}
+            className={`${styles.imgContainer} ${styles.smallImgContainer1} ${
+              darkTheme ? styles.imgContainerDark : styles.imgContainerLight
+            }`}
           >
             <img src={img1} alt="" className={styles.smallImg} />
           </div>
           <div
-            className={`${styles.imgContainer} ${styles.smallImgContainer2}`}
+            className={`${styles.imgContainer} ${styles.smallImgContainer2}  ${
+              darkTheme ? styles.imgContainerDark : styles.imgContainerLight
+            }`}
           >
             <div className={styles.reactionBox}>
               <Heart className={styles.reaction} />
@@ -130,7 +203,10 @@ export default function MainBoard() {
           </div>
         </section>
         {/* *** cargar imagen correspondiente desde el servidor */}
-            <Vector1 className={styles.vector1}/>
+        <Vector1
+          className={styles.vector1}
+          color={darkTheme ? "#DC5E14" : "rgba(68, 14, 112, 0.664)"}
+        />
         <img src={img3} alt="" className={styles.img3} />
       </div>
       {/* Tercera columna */}
