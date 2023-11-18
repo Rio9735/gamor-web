@@ -1,12 +1,12 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 5vh 0;
+  padding: 8vh 0;
   contain: content;
 }
 
 .container h3 {
-  font-size: clamp(4px, 1.8vw, 50px);
+  font-size: clamp(2px, 1.8vw, 50px);
 }
 
 .grid {
@@ -42,7 +42,7 @@
 }
 
 .text {
-  font-size: clamp(4px, 1.2vw, 40px);
+  font-size: clamp(2px, 1.2vw, 40px);
   font-weight: 600;
 }
 
@@ -54,34 +54,41 @@
 
 /* Estilos tema claro */
 .titleLight {
-  color: #222222;
+  color: var(--color5);
 }
 
 .categoryContainerLight {
-  background-color: #ffffff;
+  background-color: var(--color1);
 }
 
 .categoryTitleLight {
-  color: #aaaaaa;
-}
-
-/* Estilos tema oscuro */
-.titleDark {
-  color: #ffffff;
+  color: var(--color7);
 }
 
 .categoryNameLight {
-  color: #222222;
+  color: var(--color5);
+}
+
+.indicatorLight {
+  color: var(--color6);
+}
+/* Estilos tema oscuro */
+.titleDark {
+  color: var(--color1);
 }
 
 .categoryContainerDark {
-  background-color: #2b3138;
+  background-color: var(--color5);
 }
 
 .categoryTitleDark {
-  color: #dddddd;
+  color: var(--color7);
 }
 
 .categoryNameDark {
-  color: #ffffff;
+  color: var(--color1);
+}
+
+.indicatorDark {
+  color: var(--color1);
 }

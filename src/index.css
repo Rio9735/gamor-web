@@ -1,5 +1,5 @@
 body {
-  background-color: #EFF2F2;
+  background-color: var(--color2);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -12,12 +12,12 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #777474;
+  background: var(--color7);
   border-radius: 10px;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background: #7644a0;
+  background: var(--color8)
 }
 
 code {

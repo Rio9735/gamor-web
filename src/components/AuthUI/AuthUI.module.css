@@ -10,7 +10,7 @@
   align-self: center;
   height: auto;
   width: 40vw;
-  font-size: clamp(4px, 1.5vw, 50px);
+  font-size: clamp(2px, 1.5vw, 50px);
   border-radius: 2vh;
   display: flex;
   flex-direction: column;
@@ -29,8 +29,8 @@ form {
 input {
   all: unset;
   background-color: transparent;
-  font-size: clamp(4px, 1.2vw, 40px);
-  border: 0.2vh solid #bbbbbb;
+  font-size: clamp(2px, 1.2vw, 40px);
+  border: 0.2vh solid var(--color7);
   width: 50%;
   border-radius: 1.5vh;
   padding: 2vh;
@@ -39,7 +39,7 @@ input {
 input:focus {
   all: unset;
   width: 50%;
-  border: 0.5vh solid #7644a0;
+  border: 0.5vh solid var(--color9);
   border-radius: 1.5vh;
   padding: 2vh;
 }
@@ -55,27 +55,27 @@ input:-webkit-autofill:active {
 .cancelBtn {
   all: unset;
   color: #222222;
-  font-size: clamp(4px, 2vw, 60px);
+  font-size: clamp(2px, 2vw, 60px);
   border-radius: 1.5vh;
   margin-left: auto;
   padding: 0.5vh 1vw;
 }
 
 .cancelBtn:active {
-  background-color: rgba(1, 1, 1, 0.1);
+  background: var(--color15);
 }
 
 .acceptBtn {
   all: unset;
-  color: #ffffff;
-  background-color: #7644a0;
-  font-size: clamp(4px, 1.5vw, 40px);
+  color: var(--color1);
+  background-color: var(--color9);
+  font-size: clamp(2px, 1.5vw, 40px);
   border-radius: 1.5vh;
   padding: 2vh 5vw;
 }
 
 .acceptBtn:active {
-  background-color: rgba(118, 68, 160, 0.5);
+  background-color: var(--color16)
 }
 
 /* Estilos de Texto */
@@ -88,20 +88,23 @@ input:-webkit-autofill:active {
 }
 
 .loginError {
-  font-size: clamp(4px, 1.2vw, 40px);
+  font-size: clamp(2px, 1.2vw, 40px);
   margin-top: -3vh;
 }
 
 .auxText {
-  font-size: clamp(4px, 1.2vw, 40px);
+  font-size: clamp(2px, 1.2vw, 40px);
   margin-top: 5vh;
 }
 
 .auxText a {
-  color: #7644a0;
-  font-size: clamp(4px, 1.2vw, 40px);
+  color: var(--color9);
+  font-size: clamp(2px, 1.2vw, 40px);
   text-decoration: none;
 }
+
+
+/**********************|   Estilos de tema   |*******************/
 
 /* Estilos de Tema Claro */
 .formContainerLight {
@@ -113,18 +116,18 @@ input:-webkit-autofill:active {
 }
 
 .errorTextLight {
-  color: red;
+  color: var(--color13);
 }
 
 /* Estilos de Tema Oscuro */
 .formContainerDark {
-  background-color: #2b3138;
+  background-color: var(--color5)
 }
 
 .textDark {
-  color: #cccccc;
+  color: var(--color2)
 }
 
 .errorTextDark {
-  color: rgb(245, 112, 112);
+  color: var(--color14)
 }

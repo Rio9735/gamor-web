@@ -4,7 +4,7 @@ import { categories } from "../../appData/categories";
 import styles from "./CategoriesSection.module.css";
 
 export default function CategoriesSection() {
-  const { darkTheme } = useAppData();
+  const { theme } = useAppData();
   const { selectedCategory, setSelectedCategory } = useAppData();
 
   const handleCategorySelect = (index) => {
@@ -17,24 +17,19 @@ export default function CategoriesSection() {
 
   return (
     <div className={styles.container}>
-      <h3 className={darkTheme ? styles.titleDark : styles.titleLight}>
-        Trending Categories
-      </h3>
+      <h3 className={styles[`title${theme}`]}>Trending Categories</h3>
       <div className={styles.grid}>
         {categories.map((item, index) => (
           <button
             key={index}
             className={`${styles.categoryContainer} ${
-              darkTheme
-                ? styles.categoryContainerDark
-                : styles.categoryContainerLight
+              styles[`categoryContainer${theme}`]
             }`}
             style={
               selectedCategory === index
                 ? {
-                    background: `linear-gradient(rgba(118, 68, 160, 0.5), rgb(118, 68, 160)), url(${item.image})`,
+                    background: `linear-gradient(var(--color17), var(--color9)), url(${item.image})`,
                     backgroundSize: "cover",
-                    color: "#ffffff",
                   }
                 : {}
             }
@@ -51,7 +46,7 @@ export default function CategoriesSection() {
                   {selectedCategory !== index && "/"}
                   <p
                     className={`${styles.categoryTitle} ${
-                      selectedCategory === index || darkTheme
+                      selectedCategory === index || theme === "Dark"
                         ? styles.categoryTitleDark
                         : styles.categoryTitleLight
                     }`}
@@ -63,7 +58,7 @@ export default function CategoriesSection() {
               {index >= 7 && (
                 <p
                   className={`${styles.categoryTitle} ${
-                    selectedCategory === index || darkTheme
+                    selectedCategory === index || theme === "Dark"
                       ? styles.categoryTitleDark
                       : styles.categoryTitleLight
                   } `}
@@ -74,7 +69,7 @@ export default function CategoriesSection() {
             </div>
             <p
               className={`${styles.text} ${
-                selectedCategory === index || darkTheme
+                selectedCategory === index || theme === "Dark"
                   ? styles.categoryNameDark
                   : styles.categoryNameLight
               }`}
@@ -82,10 +77,11 @@ export default function CategoriesSection() {
               {item.category}
             </p>
             <Indicator
-              color={
-                selectedCategory === index || darkTheme ? "#ffffff" : "#333333"
-              }
-              className={styles.indicator}
+              className={`${styles.indicator} ${
+                selectedCategory === index || theme === "Dark"
+                  ? styles.indicatorDark
+                  : styles.indicatorLight
+              }`}
             />
           </button>
         ))}

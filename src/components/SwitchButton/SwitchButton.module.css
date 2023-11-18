@@ -1,0 +1,81 @@
+.mainContainer {
+  height: 8vh;
+  border-radius: 10vw;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.highlightSelection {
+  height: 6vh;
+  width: 33.33%;
+  border-radius: 9vw;
+  position: absolute;
+  transition: left 0.3s ease;
+}
+
+.position0 {
+  left: 1vh;
+}
+
+.position1 {
+  left: 33.33%;
+}
+
+.position2 {
+  /* El cálculo asegura que el resaltado mantenga un margen derecho de 1vh al seleccionar la última opción */
+  left: calc(66.66% - 1vh);
+}
+
+.option {
+  all: unset;
+  font-size: clamp(2px, 1vw, 40px);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.selectedOption {
+  font-size: clamp(2px, 1.2vw, 40px);
+}
+
+/* Estilos del tema */
+
+/* Estilos tema claro */
+.mainContainerLight {
+  background-color: var(--color0);
+  border: 0.1vh solid var(--color2);
+}
+
+.highlightSelectionLight {
+  background-color: var(--color15);
+}
+
+.textLight {
+  color: var(--color5);
+}
+
+.highlightedTextLight {
+  color: var(--color3);
+}
+
+/* Estilos tema oscuro */
+.mainContainerDark {
+  background-color: var(--color4);
+}
+
+.highlightSelectionDark {
+  background-color: var(--color19);
+}
+
+.textDark {
+  color: var(--color7);
+}
+
+.highlightedTextDark {
+  color: var(--color1);
+}

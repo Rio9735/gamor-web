@@ -18,11 +18,11 @@ function MainContent() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true); //manejar la carga
   const [dataLoaded, setDataLoaded] = useState(false); // rastrear si ya se cargaron los datos
-  const { darkTheme } = useAppData();
+  const { theme } = useAppData();
 
   useEffect(() => {
-    document.body.style.backgroundColor = darkTheme ? "#20262D" : "#EFF2F2";
-  }, [darkTheme]);
+    document.body.style.backgroundColor = theme === "Dark" ? "var(--color4)" : 'var(--color2)';
+  }, [theme]);
 
   const handleScroll = (e) => {
     var target = e.deltaY < 0 ? 0 : document.body.scrollHeight;

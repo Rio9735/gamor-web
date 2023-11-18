@@ -2,13 +2,11 @@ import { useAppData } from "../../context/appContext";
 import styles from "./GamorLogo.module.css";
 
 export default function GamorLogo({ classN }) {
-  const { darkTheme } = useAppData();
+  const { theme } = useAppData();
   return (
     <div className={`${styles.gamorLogo} ${classN ? classN : ""}`}>
       <div className={styles.blurCircle} />
-      <h1 className={darkTheme ? styles.logoTextDark : styles.logoTextLight}>
-        Gamor
-      </h1>
+      <h1 className={styles[`logoText${theme}`]}>Gamor</h1>
     </div>
   );
 }

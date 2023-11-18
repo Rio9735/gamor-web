@@ -9,7 +9,7 @@ export default function AuthUI({ type, title, feedback }) {
   // title => String
   // feedback => String (Mensaje auxiliar que se muestra si no ocurre algún error al confirmar el formulario de autenticación)
 
-  const { darkTheme } = useAppData();
+  const { theme } = useAppData();
   const navigate = useNavigate();
   const [prevRoute, setPrevRoute] = useState(null);
   const [helperText, setHelperText] = useState(null);
@@ -61,32 +61,21 @@ export default function AuthUI({ type, title, feedback }) {
   return (
     <div className={styles.container}>
       <div
-        className={`${styles.formContainer} ${
-          darkTheme ? styles.formContainerDark : styles.formContainerLight
-        }`}
+        className={`${styles.formContainer} ${styles[`formContainer${theme}`]}`}
       >
         <button
           id={`cancel_${type}`}
-          className={`${styles.cancelBtn} ${
-            darkTheme ? styles.textDark : styles.textLight
-          }`}
+          className={`${styles.cancelBtn} ${styles[`text${theme}`]}`}
           onClick={() => navigate(prevRoute)}
         >
           X
         </button>
         {title && (
-          <h2
-            className={`${styles.title}  ${
-              darkTheme ? styles.textDark : styles.textLight
-            }`}
-          >
+          <h2 className={`${styles.title}  ${styles[`text${theme}`]}`}>
             {title}
           </h2>
         )}
-        <form
-          onSubmit={handleSubmit}
-          className={darkTheme ? styles.textDark : styles.textLight}
-        >
+        <form onSubmit={handleSubmit} className={styles[`text${theme}`]}>
           <input
             type="email"
             id={`email_${type}`}
@@ -104,7 +93,10 @@ export default function AuthUI({ type, title, feedback }) {
             onChange={(e) => setPassword(e.target.value)}
           />
           {type === "signin" && helperText && (
-            <label htmlFor="pw_signin" className={`${styles.loginError} ${darkTheme ? styles.errorTextDark : styles.errorTextLight}`}>
+            <label
+              htmlFor="pw_signin"
+              className={`${styles.loginError} ${styles[`errorText${theme}`]}`}
+            >
               {helperText}
             </label>
           )}
@@ -113,20 +105,12 @@ export default function AuthUI({ type, title, feedback }) {
           </button>
         </form>
         {type === "signup" && helperText && (
-          <p
-            className={`${styles.helperText} ${
-              darkTheme ? styles.textDark : styles.textLight
-            }`}
-          >
+          <p className={`${styles.helperText} ${styles[`text${theme}`]}`}>
             {helperText}
           </p>
         )}
       </div>
-      <p
-        className={`${styles.auxText} ${
-          darkTheme ? styles.textDark : styles.textLight
-        }`}
-      >
+      <p className={`${styles.auxText} ${styles[`text${theme}`]}`}>
         {message} <Link to={linkTo}>{linkText}</Link>
       </p>
     </div>

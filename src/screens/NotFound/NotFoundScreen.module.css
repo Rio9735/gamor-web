@@ -6,9 +6,9 @@
 }
 
 .textLight {
-  color: #222222;
+  color: var(--color3)
 }
 
 .textDark {
-  color: #cccccc;
+  color: var(--color2)
 }

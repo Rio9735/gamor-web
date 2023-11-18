@@ -23,13 +23,25 @@
 
 .navbar a,
 .signout {
-  font-size: clamp(4px, 1.2vw, 40px);
+  font-size: clamp(2px, 1.2vw, 40px);
 }
 
 .navbar a {
   text-decoration: none;
   /* el tamaño de la fuente será 1.5vw si ese valor está entre 15px y 20px. Si 1.5vw es menor que 15px o mayor que 20px, el tamaño de la fuente será 15px o 20px respectivamente.*/
-  font-size: clamp(4px, 1.2vw, 40px);
+  font-size: clamp(2px, 1.2vw, 40px);
+}
+
+.navOptionContainer {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.oval {
+  position: absolute;
+  width: 170%;
 }
 
 .rightSection {
@@ -50,54 +62,66 @@
   padding: 1vh;
 }
 
+.toggleTheme:active {
+  background-color: var(--color7);
+}
+
 .signup {
-  background-color: #222222;
-  color: #ffffff;
-  border: 0.1vh solid #4b4b4b;
+  background-color: var(--color3);
+  color: var(--color1);
+  border: 0.1vh solid var(--color6-1);
   margin-left: 3vw;
 }
 
 .signout {
   all: unset;
-  font-size: clamp(4px, 1.2vw, 40px);
+  font-size: clamp(2px, 1.2vw, 40px);
 }
 
 .signout:active {
-  color: #7644a0;
+  color: var(--color9);
 }
 
 /* Estilos del tema claro */
 
 .activeRouteLight {
-  color: #7644a0;
+  color: var(--color9);
+}
+
+.ovalLight {
+  color: var(--color8);
 }
 
 .toggleLight {
-  background-color: #20262d;
+  background-color: var(--color4);
 }
 
 .textLight {
-  color: #222222;
+  color: var(--color3);
 }
 
 .lightIcon {
-  color: #20262d;
+  color: var(--color4);
 }
 
 /* Estilos del tema oscuro */
 
 .textDark {
-  color: #888888;
+  color: var(--color7);
+}
+
+.ovalDark {
+  color: var(--color11);
 }
 
 .activeRouteDark {
-  color: #fd8843;
+  color: var(--color11);
 }
 
 .toggleDark {
-  background-color: #ffffff;
+  background-color: var(--color1);
 }
 
 .darkIcon {
-  color: #eff2f2;
+  color: var(--color2);
 }

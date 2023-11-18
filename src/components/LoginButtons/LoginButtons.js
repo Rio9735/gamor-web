@@ -4,11 +4,11 @@ import styles from "./LoginButtons.module.css";
 
 export function SigninButton({ classN }) {
   const navigate = useNavigate();
-  const { darkTheme } = useAppData();
+  const { theme } = useAppData();
   return (
     <button
-    id='signin'
-      className={`${styles.signin} ${darkTheme ? styles.textDark : styles.textLight} ${classN}`}
+      id="signin"
+      className={`${styles.signin} ${styles[`text${theme}`]} ${classN}`}
       onClick={() => navigate("/signin")}
     >
       Sign in
@@ -17,12 +17,14 @@ export function SigninButton({ classN }) {
 }
 
 export function SignupButton({ classN }) {
-  const { darkTheme } = useAppData();
+  const { theme } = useAppData();
   const navigate = useNavigate();
   return (
     <button
-    id='signup'
-      className={`${styles.signup} ${darkTheme ? styles.textDark : styles.textLight} ${darkTheme ? styles.signupDark : styles.signupLight} ${classN}`}
+      id="signup"
+      className={`${styles.signup} ${styles[`text${theme}`]} ${
+        styles[`signup${theme}`]
+      } ${classN}`}
       onClick={() => navigate("/signup")}
     >
       Create account

@@ -8,13 +8,14 @@ const AppContext = createContext();
 export function AppProvider({ children }) {
   const [user, setUser] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(6);
-  // valores admitidos: 'dark' || 'light'
-  const [darkTheme, setDarkTheme] = useState(false);
+  // valores admitidos: 'Dark' || 'Light'
+  const [theme, setTheme] = useState("Light");
 
+  // actualizar el estado del tema con el valor guardado
   useEffect(() => {
-    const isDarkTheme = JSON.parse(localStorage.getItem("darkTheme"));
-    if (isDarkTheme) {
-      setDarkTheme(isDarkTheme);
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
     }
 
     // Escuchar los cambios en el estado de autenticación
@@ -32,14 +33,14 @@ export function AppProvider({ children }) {
     });
   }, []);
 
-  // función para el cambio de tema
+  // función para cambiar de tema y guardar el tema actual en el almacenamiento local
   const toggleTheme = () => {
-    if (!darkTheme) {
-      window.localStorage.setItem("darkTheme", JSON.stringify(true));
-      setDarkTheme(true);
+    if (theme === "Light") {
+      setTheme("Dark");
+      window.localStorage.setItem("theme", "Dark");
     } else {
-      window.localStorage.setItem("darkTheme", JSON.stringify(false));
-      setDarkTheme(false);
+      setTheme("Light");
+      window.localStorage.setItem("theme", "Light");
     }
   };
 
@@ -47,7 +48,7 @@ export function AppProvider({ children }) {
     <AppContext.Provider
       value={{
         user,
-        darkTheme,
+        theme,
         toggleTheme,
         selectedCategory,
         setSelectedCategory,

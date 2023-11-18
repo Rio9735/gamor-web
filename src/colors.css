@@ -1,0 +1,24 @@
+:root {
+  --color0: rgb(255, 255, 255);
+  --color1: rgb(248, 250, 251);
+  --color2: rgb(239, 242, 242);
+  --color3: rgb(18, 22, 27);
+  --color4: rgb(32, 38, 45);
+  --color5: rgb(43, 49, 56);
+  --color6: rgb(51, 57, 61);
+  --color6-1: rgb(75, 75, 75);
+  --color7: rgb(136, 136, 136);
+  --color8: rgb(126, 51, 240);
+  --color9: rgb(118, 68, 160);
+  --color10: rgb(84, 0, 95);
+  --color11: rgb(253, 136, 67);
+  --color12: rgb(220, 94, 20);
+  --color13: rgb(255, 0, 0);
+  --color14: rgb(245, 112, 112);
+  --color15: rgba(1, 1, 1, 0.1);
+  --color16: rgba(118, 68, 160, 0.5);
+  --color17: rgba(68, 14, 112, 0.7);
+  --color18: rgba(199, 101, 44, 0.5);
+  --color19: rgba(255, 255, 255, 0.2);
+  --color20: rgba(32, 38, 45, 0.4);
+}
