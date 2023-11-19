@@ -40,7 +40,7 @@ function MainContent() {
     });
   }, [navigate, location]);
 
-  // Mostrar feedback de carga mientras se cargan los datos, si los datos no se cargan en 5 segundos se ocultará el indicador de carga y se renderizará la aplicación
+  // Manejar feedback de carga mientras se cargan los datos, si los datos no se cargan en 5 segundos se ocultará el indicador de carga y se renderizará la aplicación
   useEffect(() => {
     let timer;
     if (!dataLoaded) {
@@ -54,7 +54,7 @@ function MainContent() {
     return () => clearTimeout(timer);
   }, [dataLoaded]);
 
-  // mostrar feedback de carga mientras se cargan los datos de la app para evitar parpadeos en la renderización de los componentes
+  // Mostrar feedback de carga mientras se cargan los datos de la app para evitar parpadeos en la renderización de los componentes
   if (loading) {
     return (
       <div className={styles.loadingContainer}>

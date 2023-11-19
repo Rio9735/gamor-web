@@ -11,7 +11,7 @@ export function AppProvider({ children }) {
   // valores admitidos: 'Dark' || 'Light'
   const [theme, setTheme] = useState("Light");
 
-  // actualizar el estado del tema con el valor guardado
+  // Actualizar el estado del tema con el valor guardado
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
@@ -25,7 +25,7 @@ export function AppProvider({ children }) {
       // Si el usuario está autenticado, recuperar la categoría del almacenamiento local
       if (session?.user) {
         const savedCategory = localStorage.getItem("selectedCategory");
-        // Solo se recuperará la categoría si el valor almacenado corresponde con una posición valida del arreglo de categorías
+        // Solo se recuperará la categoría si el valor almacenado corresponde con una posición válida del arreglo de categorías
         if (savedCategory && savedCategory >= 0 && savedCategory <= 7) {
           setSelectedCategory(JSON.parse(savedCategory));
         }
@@ -33,7 +33,7 @@ export function AppProvider({ children }) {
     });
   }, []);
 
-  // función para cambiar de tema y guardar el tema actual en el almacenamiento local
+  // Manejar el cambio de tema y guardar el tema actual en el almacenamiento local
   const toggleTheme = () => {
     if (theme === "Light") {
       setTheme("Dark");

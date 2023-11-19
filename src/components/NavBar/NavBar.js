@@ -12,7 +12,7 @@ import styles from "./NavBar.module.css";
 
 export default function NavBar() {
   const { user, theme, toggleTheme } = useAppData();
-  const location = useLocation().pathname; // hook de react router usado para obtener la ruta actual en la navegación
+  const location = useLocation().pathname;
   const [activeRoute, setActiveRoute] = useState(location);
   const routes = [
     { path: "/", name: "Home" },
@@ -32,7 +32,7 @@ export default function NavBar() {
     }
   };
 
-  // definir la vista activa al cambiar la ruta y guardar la ruta actual en el almacenamiento local, se ignoran las rutas de la autenticación y las rutas no válidas
+  // Definir la vista activa al cambiar la ruta y guardar la ruta actual en el almacenamiento local, se ignoran las rutas de la autenticación y las rutas no válidas
   useEffect(() => {
     if (!validateRoute(location)) {
       return;
@@ -41,7 +41,7 @@ export default function NavBar() {
     localStorage.setItem("activeRoute", location);
   }, [location]);
 
-  // cargar la última ruta guardada montar el componente
+  // Cargar la última ruta guardada montar el componente
   useEffect(() => {
     const savedRoute = localStorage.getItem("activeRoute");
     if (savedRoute) {
@@ -49,7 +49,7 @@ export default function NavBar() {
     }
   }, []);
 
-  // cerrar sesión
+  // Cerrar sesión
   const signout = async () => {
     // Eliminar la categoría del almacenamiento local
     localStorage.removeItem("selectedCategory");
@@ -59,7 +59,7 @@ export default function NavBar() {
     if (error) {
       alert(error.message);
     } else {
-      // el retraso es para darle tiempo a la UI a que se actualice al cerrar sesión antes de mostrar la alerta
+      // El retraso es para darle tiempo a la UI a que se actualice al cerrar sesión antes de mostrar la alerta
       setTimeout(() => alert("Your session has been closed!"), 100);
     }
   };

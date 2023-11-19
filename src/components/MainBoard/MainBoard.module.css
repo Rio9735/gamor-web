@@ -111,12 +111,12 @@
   border-radius: 4vw;
   position: relative;
   align-items: center;
-  padding: 0.7vw 2vw;
+  padding: 0.5vw 2vw;
 }
 
 .section4 p {
-  font-size: clamp(4px, 2vw, 50px);
-  font-weight: 700;
+  font-size: clamp(4px, 1.8vw, 50px);
+  font-weight: 500;
   margin: 0;
 }
 
@@ -144,37 +144,8 @@
   width: auto;
 }
 
-.section5 {
-  width: 100%;
-  position: relative;
-}
-
-.imgContainer {
-  height: 7vh;
-  width: 7vh;
-  border-radius: 1vh;
-  position: absolute;
-}
-
-.smallImg {
-  height: 90%;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-}
-
-.smallImgContainer1 {
-  top: 3vh;
-  left: 3vw;
-}
-
-.smallImgContainer2 {
-  right: 3vw;
-  top: 8vh;
-}
-
-.img3 {
-  max-width: 70%;
+.fortniteImg {
+  max-width: auto;
   max-height: 55%;
   position: absolute;
   bottom: 0;
@@ -184,23 +155,6 @@
   max-height: 38%;
   position: absolute;
   bottom: 4vh;
-}
-
-.reactionBox {
-  background-color: #222222;
-  height: 4vh;
-  width: 4vh;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: -1.8vh 0 0 -1vw;
-}
-
-.reaction {
-  color: var(--color1);
-  height: 2vh;
-  width: 2vh;
 }
 
 /* Columna 3 */
@@ -303,20 +257,22 @@
 
 .resultsText {
   display: flex;
-  flex: 1;
+  flex: 0.6;
   overflow: hidden;
 }
 
 .resultsAvatars {
+  display: flex;
   flex: 1;
+  margin-right: 1vw;
+  overflow: hidden;
 }
 
 .column3AddButton {
   all: unset;
-  background-color: var(--color19);
-  font-size: calc(2vw * 0.6);
-  height: 2vw;
-  width: 2vw;
+  font-size: calc(1.8vw * 0.6);
+  height: 1.8vw;
+  width: 1.8vw;
   display: flex;
   border-radius: 0.5vw;
   justify-content: center;
@@ -326,13 +282,14 @@
 .searchButton {
   all: unset;
   display: flex;
+  background-color: var(--color0);
+  box-shadow: 0 15px 12px 0 var(--color15);
   font-size: clamp(2px, 1.2vw, 40px);
   font-weight: 700;
+  border-radius: 0.5vw;
   justify-content: center;
-  background-color: var(--color0);
   margin: 0 3vh 1vh;
   padding: 0.7vw 0;
-  border-radius: 0.5vw;
   z-index: 4;
 }
 
@@ -382,10 +339,6 @@
   color: var(--color10);
 }
 
-.imgContainerLight {
-  background-color: var(--color17);
-}
-
 .vector1Light {
   color: var(--color17);
 }
@@ -407,6 +360,10 @@
 }
 
 .resultIndexLight {
+  background-color: var(--color15);
+}
+
+.column3AddButtonLight {
   background-color: var(--color15);
 }
 
@@ -432,7 +389,7 @@
 }
 
 .text1Dark {
-  color: var(--color15);
+  color: var(--color7);
 }
 
 .highlightedTextDark,
@@ -450,10 +407,6 @@
   color: var(--color12);
 }
 
-.imgContainerDark {
-  background-color: var(--color18);
-}
-
 .filterContainerDark {
   background-color: var(--color4);
 }
@@ -468,6 +421,10 @@
 
 .filterResultsTextDark::after {
   background: linear-gradient(to top, var(--color20), transparent);
+}
+
+.column3AddButtonDark {
+  background-color: var(--color19);
 }
 
 .searchButtonDark {

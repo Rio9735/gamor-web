@@ -4,7 +4,7 @@ import { useAppData } from "../../context/appContext";
 
 export default function SwitchButton() {
   const { user, theme } = useAppData();
-  const [selectedOption, setSelectedOption] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(2);
   const option1 = selectedOption === 0 ? "\uD83C\uDF89 Party" : "Party";
   const option2 = selectedOption === 1 ? "\uD83C\uDFAE Matches" : "Matches";
   const option3 = selectedOption === 2 ? "\uD83C\uDFA5 Streams" : "Streams";

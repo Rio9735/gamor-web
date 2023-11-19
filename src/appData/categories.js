@@ -8,12 +8,36 @@ import sportImage from "../assets/categoriesBg/sport.jpg";
 import strategyImage from "../assets/categoriesBg/strategy.jpg";
 
 export const categories = [
-  { category: "Action Games", color: "#FF5512", image: actionImage },
-  { category: "Sport Games", color: "#0B5BDC", image: sportImage },
-  { category: "Adventure Games", color: "#DC0B66", image: adventureImage },
-  { category: "Arcade Games", color: "#FFF345", image: arcadeImage },
-  { category: "Fantasy Games", color: "#8C1EE7", image: fantasyImage },
-  { category: "Strategy", color: "#1FF350", image: strategyImage },
-  { category: "Shooter Games", color: "#FD0000", image: shooterImage },
+  {
+    category: "Action Games",
+    color: "var(--color31)",
+    image: actionImage,
+  },
+  { category: "Sport Games", color: "var(--color34)", image: sportImage },
+  {
+    category: "Adventure Games",
+    color: "var(--color33)",
+    image: adventureImage,
+  },
+  {
+    category: "Arcade Games",
+    color: "var(--color37)",
+    image: arcadeImage,
+  },
+  {
+    category: "Fantasy Games",
+    color: "var(--color35)",
+    image: fantasyImage,
+  },
+  {
+    category: "Strategy",
+    color: "var(--color36)",
+    image: strategyImage,
+  },
+  {
+    category: "Shooter Games",
+    color: "var(--color32)",
+    image: shooterImage,
+  },
   { category: "All Categories", color: "", image: generic },
 ];

@@ -16,13 +16,13 @@ export default function AuthUI({ type, title, feedback }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // para el mensaje que aparece debajo del formulario
+  // Definir mensaje que aparece debajo del formulario
   const message =
     type === "signup" ? "Already have an account?" : "Don't have an account?";
   const linkTo = type === "signup" ? "/signin" : "/signup";
   const linkText = type === "signup" ? "Sign in" : "Create account";
 
-  // cargar la última ruta guardada montar el componente
+  // Cargar la última ruta guardada montar el componente
   useEffect(() => {
     const savedRoute = localStorage.getItem("activeRoute");
     if (savedRoute) {
@@ -32,7 +32,7 @@ export default function AuthUI({ type, title, feedback }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    // elegir el método de auth para iniciar sesión o crear usuario según el valor de type
+    // Elegir el método de auth para iniciar sesión o crear usuario según el valor de type
     const operation = type === "signup" ? "signUp" : "signInWithPassword";
     const { error } = await supabase.auth[operation]({
       email: email,
@@ -48,7 +48,7 @@ export default function AuthUI({ type, title, feedback }) {
     }
   }
 
-  // muestra el mensaje de error durante 5 segundos
+  // Mostrar el mensaje de error durante 5 segundos
   useEffect(() => {
     if (helperText !== feedback) {
       const timer = setTimeout(() => {

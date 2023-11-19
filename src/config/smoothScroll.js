@@ -19,7 +19,7 @@ export default function smoothScroll(target, duration) {
   var distance = targetPosition - startPosition;
   var startTime = null;
   var scrolling = false;
-  var lastScrollDirection = null; // Nueva variable para rastrear la dirección del último movimiento de la rueda del mouse
+  var lastScrollDirection = null;
 
   function stopScrolling() {
     scrolling = false;
@@ -34,7 +34,7 @@ export default function smoothScroll(target, duration) {
 
   // Nueva función para manejar el evento de la rueda del mouse
   function handleWheel(e) {
-    var currentScrollDirection = Math.sign(e.deltaY); // Determinar la dirección del movimiento actual de la rueda del mouse
+    var currentScrollDirection = Math.sign(e.deltaY); // Determinar la dirección del movimiento actual de la rueda del mouse segun el signo de la variable de desplazamiento vertical 'deltaY'
     if (
       lastScrollDirection !== null &&
       lastScrollDirection !== currentScrollDirection
@@ -65,7 +65,7 @@ export default function smoothScroll(target, duration) {
    *
    * La función devuelve la posición de desplazamiento en el tiempo 't'.
    *
-   * Utiliza una ecuación de interpolación cúbica para crear un efecto de aceleración suave al principio y al final de la animación, con una aceleración más rápida en el medio.
+   * Utilizar una ecuación de interpolación cúbica para crear un efecto de aceleración suave al principio y al final de la animación, con una aceleración más rápida en el medio.
    */
   function ease(t, b, c, d) {
     t /= d;
@@ -79,8 +79,8 @@ export default function smoothScroll(target, duration) {
   }
 
   scrolling = true;
-  // Agregar controladores de eventos para prevenir el desplazamiento durante la animación y detener la animación si el usuario hace clic o toca la pantalla
-  window.addEventListener("wheel", handleWheel, { passive: false }); // Modificado para usar la nueva función handleWheel
+  // Agregar controladores de eventos para manejar el desplazamiento durante la animación y detener la animación si el usuario hace clic o toca la pantalla
+  window.addEventListener("wheel", handleWheel, { passive: false });
   window.addEventListener("mousedown", stopScrolling);
   window.addEventListener("touchstart", stopScrolling);
   // Solicitar el primer cuadro de la animación
