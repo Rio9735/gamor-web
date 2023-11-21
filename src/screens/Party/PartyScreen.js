@@ -1,4 +1,4 @@
-import styles from "./PartyScreen.module.css";
+// import styles from "./PartyScreen.module.css";
 
 export default function PartyScreen() {
   return (
