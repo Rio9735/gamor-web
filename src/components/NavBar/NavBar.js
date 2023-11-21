@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAppData } from "../../context/appContext";
 import { supabase } from "./../../config/supabase";
+import { SigninButton, SignupButton } from "../LoginButtons/LoginButtons";
 import validateRoute from "../../config/validateRoute";
 import GamorLogo from "../Logo/GamorLogo";
-import { SigninButton, SignupButton } from "../LoginButtons/LoginButtons";
 import { ReactComponent as Oval } from "../../assets/svg/oval.svg";
 import { ReactComponent as Moon } from "../../assets/svg/moon-outline.svg";
 import { ReactComponent as Sun } from "../../assets/svg/sunny-outline.svg";
@@ -93,7 +93,7 @@ export default function NavBar() {
       {/* Logo */}
       <GamorLogo />
       <div className={styles.rightSection}>
-        {/* botón de cambio de tema */}
+        {/* Botón de cambio de tema */}
         <button
           id="toggleTheme"
           className={`${styles.toggleTheme} ${styles[`toggle${theme}`]}`}

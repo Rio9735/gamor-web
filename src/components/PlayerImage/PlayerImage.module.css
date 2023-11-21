@@ -18,8 +18,6 @@
   bottom: 0;
 }
 
-/***********************************/
-
 .reactionBox {
   background-color: #222222;
   height: 1.5vw;
@@ -37,7 +35,7 @@
   width: 0.8vw;
 }
 
-/* Estilos de tema */
+/**********************|   Estilos de tema   |*******************/
 
 .imgContainerLight {
   background-color: var(--color17);

@@ -1,0 +1,19 @@
+.loadingSpinner {
+  width: 4vh;
+  height: 4vh;
+  border-radius: 50%;
+  border: 1vh solid var(--color1);
+  border-top: 1vh solid var(--color9);
+  margin-top: 2vh;
+  animation: spin 1s linear infinite;
+}
+
+/* Animación para el ícono de carga */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

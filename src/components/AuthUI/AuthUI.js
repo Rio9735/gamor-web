@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./AuthUI.module.css";
 import { supabase } from "../../config/supabase";
 import { useAppData } from "../../context/appContext";
+import styles from "./AuthUI.module.css";
 
 export default function AuthUI({ type, title, feedback }) {
   // type='signin' || 'signup' (*Parámetro Requerido* Si se asigna otro valor a type habrá errores)
@@ -77,16 +77,18 @@ export default function AuthUI({ type, title, feedback }) {
         )}
         <form onSubmit={handleSubmit} className={styles[`text${theme}`]}>
           <input
-            type="email"
             id={`email_${type}`}
+            className={styles.input}
+            type="email"
             placeholder="email *"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            type="password"
             id={`pw_${type}`}
+            className={styles.input}
+            type="password"
             placeholder="password *"
             required
             value={password}

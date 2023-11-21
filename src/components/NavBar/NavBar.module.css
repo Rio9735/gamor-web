@@ -28,7 +28,6 @@
 
 .navbar a {
   text-decoration: none;
-  /* el tamaño de la fuente será 1.5vw si ese valor está entre 15px y 20px. Si 1.5vw es menor que 15px o mayor que 20px, el tamaño de la fuente será 15px o 20px respectivamente.*/
   font-size: clamp(2px, 1.2vw, 40px);
 }
 
@@ -81,6 +80,8 @@
 .signout:active {
   color: var(--color9);
 }
+
+/**********************|   Estilos de tema   |*******************/
 
 /* Estilos del tema claro */
 

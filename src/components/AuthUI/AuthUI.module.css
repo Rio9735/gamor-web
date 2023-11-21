@@ -26,7 +26,7 @@ form {
   gap: 5vh;
 }
 
-input {
+.input {
   all: unset;
   background-color: transparent;
   font-size: clamp(2px, 1.2vw, 40px);
@@ -36,7 +36,7 @@ input {
   padding: 2vh;
 }
 
-input:focus {
+.input:focus {
   all: unset;
   width: 50%;
   border: 0.5vh solid var(--color9);
@@ -45,10 +45,10 @@ input:focus {
 }
 
 /* Evitar cambio de fondo del campo de entrada después del autocompletado */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -118,6 +118,8 @@ input:-webkit-autofill:active {
 .errorTextLight {
   color: var(--color13);
 }
+
+/**********************|   Estilos de tema   |*******************/
 
 /* Estilos de Tema Oscuro */
 .formContainerDark {

@@ -6,10 +6,13 @@ const AppContext = createContext();
 
 // Crear un componente de proveedor de autenticación
 export function AppProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(6);
   // valores admitidos: 'Dark' || 'Light'
+  const [loading, setLoading] = useState(true); // Manejar el estado de carga
+  const [error, setError] = useState(false); // Manejar error al cargar los datos
   const [theme, setTheme] = useState("Light");
+  const [user, setUser] = useState(null);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(6);
 
   // Actualizar el estado del tema con el valor guardado
   useEffect(() => {
@@ -44,11 +47,46 @@ export function AppProvider({ children }) {
     }
   };
 
+  // Funciones para obtener los datos de la bd
+  async function fetchCategories() {
+    setLoading(true);
+    try {
+      let { data: categories, error } = await supabase
+        .from("category")
+        .select("*");
+      if (error) throw error;
+      setCategories(categories);
+      setError(false);
+    } catch (error) {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    // Obtener los datos de la tabla categories
+    fetchCategories();
+
+    // Configurar un intervalo para volver a cargar los datos cada 5 segundos si hay un error
+    const interval = setInterval(() => {
+      if (error) {
+        fetchCategories();
+      }
+    }, 5000);
+
+    // Limpiar el intervalo cuando el componente se desmonte
+    return () => clearInterval(interval);
+  }, [error]);
+
   return (
     <AppContext.Provider
       value={{
-        user,
+        loading,
+        error,
         theme,
+        user,
+        categories,
         toggleTheme,
         selectedCategory,
         setSelectedCategory,

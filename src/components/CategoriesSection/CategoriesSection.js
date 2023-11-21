@@ -1,10 +1,11 @@
 import { ReactComponent as Indicator } from "../../assets/svg/indicator.svg";
 import { useAppData } from "../../context/appContext";
-import { categories } from "../../appData/categories";
+import  CategoriesManagement  from "../../appData/categories";
 import styles from "./CategoriesSection.module.css";
 
 export default function CategoriesSection() {
   const { theme } = useAppData();
+  const categories = CategoriesManagement()
   const { selectedCategory, setSelectedCategory } = useAppData();
 
   const handleCategorySelect = (index) => {

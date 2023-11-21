@@ -11,33 +11,29 @@ import avatar9 from "../../assets/avatars/avatar9.svg";
 import avatar10 from "../../assets/avatars/avatar10.svg";
 import styles from "./Avatar.module.css";
 
-export default function Avatar({ addViewer = false }) {
-  // cant: type = Number => Cantidad de espectadores
-  //   adviewer : type= Boolean => Representa la acción de añadir o quitar espectador
+export default function Avatar({ addViewer = false, totalViewers }) {
+  // totalViewers: type = Number => Cantidad de espectadores en el stream
+  // addViewer : type= Boolean => Representa la acción de añadir o quitar espectador
   const [viewersAvatar, setViewersAvatar] = useState([]);
-
-  /* *** sustituir la cantidad por la cantidad real de la bd */
-  const [cant, setCant] = useState(4);
-  const avatar = [
-    avatar1,
-    avatar2,
-    avatar3,
-    avatar4,
-    avatar5,
-    avatar6,
-    avatar7,
-    avatar8,
-    avatar9,
-    avatar10,
-  ];
-
   // Elegir avatar de forma aleatoria y Generar el valor de referencia al color del background del avatar de forma aleatoria entre 21-40
   useEffect(() => {
+    const avatar = [
+      avatar1,
+      avatar2,
+      avatar3,
+      avatar4,
+      avatar5,
+      avatar6,
+      avatar7,
+      avatar8,
+      avatar9,
+      avatar10,
+    ];
     const avatarsSelection = [...viewersAvatar];
 
     // Si viewersAvatar está vacío, inicializa los avatares
     if (viewersAvatar.length === 0) {
-      for (var i = 0; i < cant; i++) {
+      for (var i = 0; i < totalViewers; i++) {
         const chooseAvatar = Math.floor(Math.random() * 10);
         const bg = Math.floor(Math.random() * 20) + 21;
         avatarsSelection.push({ avatar: avatar[chooseAvatar], bg });
@@ -54,7 +50,7 @@ export default function Avatar({ addViewer = false }) {
     }
 
     setViewersAvatar(avatarsSelection);
-  }, [addViewer]);
+  }, [addViewer, totalViewers]);
 
   return (
     <div className={styles.mainContainer}>

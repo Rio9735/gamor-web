@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   useLocation,
@@ -10,18 +10,18 @@ import smoothScroll from "./config/smoothScroll";
 import RoutesConfig from "./config/routes";
 import NavBar from "./components/NavBar/NavBar";
 import GamorLogo from "./components/Logo/GamorLogo";
-import styles from "./App.module.css";
 import { useAppData } from "./context/appContext";
+import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
+import styles from "./App.module.css";
 
 function MainContent() {
+  const { loading, error, theme } = useAppData();
   const location = useLocation().pathname;
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true); //manejar la carga
-  const [dataLoaded, setDataLoaded] = useState(false); // rastrear si ya se cargaron los datos
-  const { theme } = useAppData();
 
   useEffect(() => {
-    document.body.style.backgroundColor = theme === "Dark" ? "var(--color4)" : 'var(--color2)';
+    document.body.style.backgroundColor =
+      theme === "Dark" ? "var(--color4)" : "var(--color2)";
   }, [theme]);
 
   const handleScroll = (e) => {
@@ -35,41 +35,37 @@ function MainContent() {
       if (session && (location === "/signin" || location === "/signup")) {
         navigate("/");
       }
-      // Actualizar el estado de rastreo cuando los datos se han cargado
-      setDataLoaded(true);
     });
   }, [navigate, location]);
-
-  // Manejar feedback de carga mientras se cargan los datos, si los datos no se cargan en 5 segundos se ocultará el indicador de carga y se renderizará la aplicación
-  useEffect(() => {
-    let timer;
-    if (!dataLoaded) {
-      timer = setTimeout(() => {
-        setLoading(false);
-      }, 5000);
-    } else {
-      setLoading(false);
-    }
-
-    return () => clearTimeout(timer);
-  }, [dataLoaded]);
 
   // Mostrar feedback de carga mientras se cargan los datos de la app para evitar parpadeos en la renderización de los componentes
   if (loading) {
     return (
       <div className={styles.loadingContainer}>
         <GamorLogo classN={styles.loadingText} />
-        <div className={styles.loadingSpinner} />
+        <LoadingSpinner />
+      </div>
+    );
+    // Mostrar mensaje de error si no se cargan los datos
+  } else if (error) {
+    return (
+      <div className={styles.loadingContainer}>
+        <p className={`${styles.errorText} ${styles[`errorText${theme}`]}`}>
+          An error occurred. Please check your internet connection or refresh
+          the page!
+        </p>
+        <LoadingSpinner />
+      </div>
+    );
+    // SI todo se carga correctamente se renderiza la app
+  } else {
+    return (
+      <div className={styles.mainContent} onWheel={handleScroll}>
+        {validateRoute(location) && <NavBar />}
+        <RoutesConfig />
       </div>
     );
   }
-
-  return (
-    <div className={styles.mainContent} onWheel={handleScroll}>
-      {validateRoute(location) && <NavBar />}
-      <RoutesConfig />
-    </div>
-  );
 }
 
 export default function App() {

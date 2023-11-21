@@ -66,8 +66,8 @@
 }
 
 .section3 {
-  display: flex;
   width: 100%;
+  display: flex;
   flex-direction: row;
   justify-content: center;
 }
@@ -189,11 +189,25 @@
 }
 
 .filterContainer {
-  display: flex;
   height: 100%;
   border-radius: 1.5vh;
+  display: flex;
   flex-direction: column;
   contain: strict;
+}
+
+.errorMessageContainer {
+  height: 60%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorMessageText {
+  padding: 0 2vw;
+  text-align: center;
 }
 
 .filterOptions {
@@ -205,11 +219,38 @@
   border-bottom-style: solid;
 }
 
+.filterSearchInput {
+  all: unset;
+  font-size: clamp(2px, 1.2vw, 40px);
+  width: 100%;
+}
+
 .filterIcon {
   color: var(--color7);
   width: 1.5vw;
   height: auto;
   padding: 2.2vh;
+}
+
+.inputSuggestions {
+  font-size: clamp(2px, 1vw, 40px);
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  overflow: auto;
+  z-index: 20;
+}
+
+.inputSuggestions::after {
+  content: "";
+  padding-bottom: 10%;
+}
+
+.suggestedOptionButton {
+  all: unset;
+  margin: 1vw;
 }
 
 .filterResultsBody {
@@ -219,7 +260,7 @@
   position: relative;
 }
 
-/* Hacer que el conenido final se desplace hasta poco mas de la mitad del contenedor */
+/* Hacer que el contenido final se desplace hasta poco mas de la mitad del contenedor */
 .filterResultsBody::after {
   content: "";
   display: block;
@@ -261,7 +302,7 @@
   overflow: hidden;
 }
 
-.resultsAvatars {
+.resultsAvatarsContainer {
   display: flex;
   flex: 1;
   margin-right: 1vw;
@@ -281,33 +322,37 @@
 
 .searchButton {
   all: unset;
-  display: flex;
   background-color: var(--color0);
   box-shadow: 0 15px 12px 0 var(--color15);
   font-size: clamp(2px, 1.2vw, 40px);
   font-weight: 700;
   border-radius: 0.5vw;
+  display: flex;
   justify-content: center;
   margin: 0 3vh 1vh;
   padding: 0.7vw 0;
   z-index: 4;
 }
 
+.searchButton:active {
+  background-color: var(--color7);
+}
+
 /* Estilos de la barra de desplazamiento de la ultima sección de la columna 3*/
-.filterResultsBody::-webkit-scrollbar {
+.scrollBar::-webkit-scrollbar {
   width: 0.3vw;
 }
 
-.filterResultsBody::-webkit-scrollbar-thumb {
+.scrollBar::-webkit-scrollbar-thumb {
   background: var(--color7);
   border-radius: 10px;
 }
 
-.filterResultsBody::-webkit-scrollbar-thumb:hover {
+.scrollBar::-webkit-scrollbar-thumb:hover {
   background: var(--color8);
 }
 
-/* Estilos del tema */
+/**********************|   Estilos de tema   |*******************/
 
 /* Estilos del tema claro */
 
