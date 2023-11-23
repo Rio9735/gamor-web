@@ -44,14 +44,6 @@ form {
   padding: 2vh;
 }
 
-/* Evitar cambio de fondo del campo de entrada después del autocompletado */
-.input:-webkit-autofill,
-.input:-webkit-autofill:hover,
-.input:-webkit-autofill:focus,
-.input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s;
-}
-
 .cancelBtn {
   all: unset;
   color: #222222;
@@ -75,7 +67,7 @@ form {
 }
 
 .acceptBtn:active {
-  background-color: var(--color16)
+  background-color: var(--color16);
 }
 
 /* Estilos de Texto */
@@ -103,7 +95,6 @@ form {
   text-decoration: none;
 }
 
-
 /**********************|   Estilos de tema   |*******************/
 
 /* Estilos de Tema Claro */
@@ -115,6 +106,13 @@ form {
   color: #222222;
 }
 
+.inputLight:-webkit-autofill,
+.inputLight:-webkit-autofill:hover,
+.inputLight:-webkit-autofill:focus,
+.inputLight:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .errorTextLight {
   color: var(--color13);
 }
@@ -123,13 +121,21 @@ form {
 
 /* Estilos de Tema Oscuro */
 .formContainerDark {
-  background-color: var(--color5)
+  background-color: var(--color5);
 }
 
 .textDark {
-  color: var(--color2)
+  color: var(--color2);
+}
+
+.inputDark:-webkit-autofill,
+.inputDark:-webkit-autofill:hover,
+.inputDark:-webkit-autofill:focus,
+.inputDark:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--color2);
 }
 
 .errorTextDark {
-  color: var(--color14)
+  color: var(--color14);
 }

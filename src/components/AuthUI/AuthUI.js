@@ -78,8 +78,9 @@ export default function AuthUI({ type, title, feedback }) {
         <form onSubmit={handleSubmit} className={styles[`text${theme}`]}>
           <input
             id={`email_${type}`}
-            className={styles.input}
+            className={`${styles.input} ${styles[`input${theme}`]}`}
             type="email"
+            autoCorrect="false"
             placeholder="email *"
             required
             value={email}
@@ -87,8 +88,9 @@ export default function AuthUI({ type, title, feedback }) {
           />
           <input
             id={`pw_${type}`}
-            className={styles.input}
+            className={`${styles.input} ${styles[`input${theme}`]}`}
             type="password"
+            autoCorrect="false"
             placeholder="password *"
             required
             value={password}

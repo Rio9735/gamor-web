@@ -396,6 +396,13 @@
   border-bottom-color: var(--color15);
 }
 
+.filterSearchInputLight:-webkit-autofill,
+.filterSearchInputLight:-webkit-autofill:hover,
+.filterSearchInputLight:-webkit-autofill:focus,
+.filterSearchInputLight:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .filterResultsTextLight {
   color: var(--color5);
 }
@@ -458,6 +465,14 @@
 
 .filterBorderBottomDark {
   border-bottom-color: var(--color5);
+}
+
+.filterSearchInputDark:-webkit-autofill,
+.filterSearchInputDark:-webkit-autofill:hover,
+.filterSearchInputDark:-webkit-autofill:focus,
+.filterSearchInputDark:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--color2);
 }
 
 .resultIndexDark {

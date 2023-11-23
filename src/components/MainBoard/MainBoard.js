@@ -303,11 +303,12 @@ export default function MainBoard() {
               {user ? (
                 <input
                   id="searchInput"
-                  className={styles.filterSearchInput}
+                  className={`${styles.filterSearchInput} ${styles[`filterSearchInput${theme}`]}`}
                   ref={searchInputRef}
                   type="text"
                   placeholder="Escriba el nombre del juego"
                   autoCorrect="false"
+                  autoComplete="false"
                   maxLength={50}
                   value={gamesInputValue}
                   onChange={(e) => setGamesInputValue(e.target.value)}
