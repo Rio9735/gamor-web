@@ -38,7 +38,6 @@ form {
 }
 
 .input:focus {
-  all: unset;
   width: 50%;
   border: 0.5vh solid var(--color9);
   border-radius: 1.5vh;
