@@ -1,12 +1,12 @@
 import { useAppData } from "../context/appContext";
-import actionImage from "../assets/categoriesBg/action.jpg";
-import adventureImage from "../assets/categoriesBg/adventure.jpg";
-import generic from "../assets/categoriesBg/all.jpg";
-import arcadeImage from "../assets/categoriesBg/arcade.jpg";
-import fantasyImage from "../assets/categoriesBg/fantasy.jpg";
-import shooterImage from "../assets/categoriesBg/shooter.jpg";
-import sportImage from "../assets/categoriesBg/sport.jpg";
-import strategyImage from "../assets/categoriesBg/strategy.jpg";
+import actionImage from "../assets/categoriesBg/action.webp";
+import adventureImage from "../assets/categoriesBg/adventure.webp";
+import generic from "../assets/categoriesBg/all.webp";
+import arcadeImage from "../assets/categoriesBg/arcade.webp";
+import fantasyImage from "../assets/categoriesBg/fantasy.webp";
+import shooterImage from "../assets/categoriesBg/shooter.webp";
+import sportImage from "../assets/categoriesBg/sport.webp";
+import strategyImage from "../assets/categoriesBg/strategy.webp";
 
 export default function CategoriesManagement() {
   const { categories } = useAppData();
@@ -29,7 +29,7 @@ export default function CategoriesManagement() {
     shooterImage,
     generic,
   ];
-  
+
   const categoriesData = categories.map((item, index) => ({
     category: item.category_name,
     color: colors[index],
@@ -39,7 +39,7 @@ export default function CategoriesManagement() {
   categoriesData.push({
     category: "All Categories",
     color: "",
-    imagen: images[7],
+    image: images[7],
   });
   return categoriesData;
 }

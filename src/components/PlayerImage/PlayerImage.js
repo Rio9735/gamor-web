@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useAppData } from "../../context/appContext";
 import { ReactComponent as Heart } from "../../assets/svg/heart.svg";
 import { ReactComponent as Eye } from "../../assets/svg/eye.svg";
-import fortnite1 from "../../assets/fortnite/fortnite1.png";
-import fortnite2 from "../../assets/fortnite/fortnite2.png";
-import fortnite3 from "../../assets/fortnite/fortnite3.png";
-import fortnite4 from "../../assets/fortnite/fortnite4.png";
-import fortnite5 from "../../assets/fortnite/fortnite5.png";
-import fortnite6 from "../../assets/fortnite/fortnite6.png";
+import fortnite1 from "../../assets/fortnite/fortnite1.webp";
+import fortnite2 from "../../assets/fortnite/fortnite2.webp";
+import fortnite3 from "../../assets/fortnite/fortnite3.webp";
+import fortnite4 from "../../assets/fortnite/fortnite4.webp";
+import fortnite5 from "../../assets/fortnite/fortnite5.webp";
+import fortnite6 from "../../assets/fortnite/fortnite6.webp";
 import styles from "./PlayerImage.module.css";
 
 const images = [

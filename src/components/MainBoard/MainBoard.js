@@ -12,8 +12,8 @@ import { ReactComponent as Underline } from "../../assets/svg/underline.svg";
 import { ReactComponent as AddUser } from "../../assets/svg/addUser.svg";
 import { ReactComponent as Vector1 } from "../../assets/svg/vector1.svg";
 import { ReactComponent as Filter } from "../../assets/svg/filter.svg";
-import fortniteImg1 from "../../assets/fortnite/fortnite5.png";
-import fortniteImg2 from "../../assets/fortnite/fortnite6.png";
+import fortniteImg1 from "../../assets/fortnite/fortnite5.webp";
+import fortniteImg2 from "../../assets/fortnite/fortnite6.webp";
 import styles from "./MainBoard.module.css";
 
 export default function MainBoard() {
