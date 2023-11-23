@@ -220,9 +220,13 @@
 }
 
 .filterSearchInput {
-  all: unset;
   font-size: clamp(2px, 1.2vw, 40px);
+  background: none;
   width: 100%;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
 }
 
 .filterIcon {
@@ -446,7 +450,8 @@
 
 .highlightedTextDark,
 .column3LastSectionDark,
-.filterResultsTextDark {
+.filterResultsTextDark,
+.filterSearchInputDark {
   color: var(--color1);
 }
 

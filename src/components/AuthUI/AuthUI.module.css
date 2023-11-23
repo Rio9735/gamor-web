@@ -27,12 +27,13 @@ form {
 }
 
 .input {
-  all: unset;
   background-color: transparent;
   font-size: clamp(2px, 1.2vw, 40px);
-  border: 0.2vh solid var(--color7);
   width: 50%;
+  border: 0.2vh solid var(--color7);
   border-radius: 1.5vh;
+  outline: none;
+  margin: 0;
   padding: 2vh;
 }
 
@@ -124,7 +125,8 @@ form {
   background-color: var(--color5);
 }
 
-.textDark {
+.textDark,
+.inputDark {
   color: var(--color2);
 }
 

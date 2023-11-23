@@ -21,6 +21,13 @@ export default function smoothScroll(target, duration) {
   var scrolling = false;
   var lastScrollDirection = null;
 
+  // Verificar si el dispositivo es Android o iOS
+  var isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
+  if (isMobile) {
+    // Si el dispositivo es Android o iOS, no ejecutar la función de desplazamiento suave
+    return;
+  }
+
   function stopScrolling() {
     scrolling = false;
   }
